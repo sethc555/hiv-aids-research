@@ -1,0 +1,6 @@
+# within-host models (P1–P1.5) and corpus tooling
+numpy>=1.24
+scipy>=1.10
+matplotlib>=3.6
+# scan.py / analyze.py use only the Python stdlib (urllib) for the Semantic Scholar API;
+# set S2_API_KEY in the environment to rebuild the corpus.
