@@ -11,10 +11,12 @@ with **multi-agent adversarial audits** of every claim.
 > for the project's own "by-construction" caveat ([P2](analysis/P2_findings.md): it survives
 > antigen-pool decoupling, so it is driven by the TIP's R0≈1 **immune-fragility**, not the
 > single-pool construction), then re-posed stochastically ([P3](analysis/P3_findings.md): the
-> immune-compatible TIP is a **low-probability outcome**, not a stable design point). The
-> model's "immune clearance" term is still only a **loose analogy** to the clinical "vaccinal
-> effect" (no replication-competent latent reservoir is modeled). Treat everything here as
-> hypothesis-generation and methods, audited for honesty — nothing more.
+> immune-compatible TIP is a **low-probability outcome**, not a stable design point), then
+> tested against the actual cure target ([P4](analysis/P4_findings.md): with a
+> replication-competent latent reservoir + ART/ATI, the TIP is **neutral to post-treatment
+> control** — the active-infection antagonism does not carry over to reservoir control). The
+> work remains illustrative (un-calibrated params, one reservoir/ψ point); treat everything
+> here as hypothesis-generation and methods, audited for honesty — nothing more.
 
 ---
 
@@ -48,7 +50,8 @@ analysis/          all working files (flat, runnable in place)
   tip_model_p3_stochastic.py     P3   — stochastic (tau-leaping) successor: the escape as a probability
   tip_model_p3b_phasemap.py      P3b  — stochastic P(cure)/P(TIP-loss) phase map over (R, nu)
   tip_model_p3c_ssa.py           P3c  — validation: dt->0 convergence + exact reduced-scale SSA
-  P1_findings.md … P3_findings.md, P3b_findings.md   per-phase write-ups
+  tip_model_p4_reservoir.py      P4   — latent replication-competent reservoir + ART/ATI (model<->clinic)
+  P1_findings.md … P3_findings.md, P3b_findings.md, P4_findings.md   per-phase write-ups
   AUDIT.md                       the self-audit + two multi-agent audit overlays
   *.png, *.npz, raw_cache.json   figures, sweep outputs, cached S2 responses
 conversation/
@@ -90,9 +93,19 @@ NARRATIVE.md                     the same thread as a readable story
    strong evasion (ν≲0.25) **and** a reservoir (R≳1×A0), peaking ~31%, zero coexistence
    anywhere — and [P3c](analysis/P3b_findings.md) validates it (dt→0 + an exact reduced-scale
    SSA: invariants method-independent; cure magnitude order-15%).
-6. **The one genuinely emergent (non-tautological) result**: P1.1's **early-TIP immune-
+6. **With the latent reservoir modeled, a TIP is *neutral* to the actual cure**
+   ([P4](analysis/P4_findings.md)): the standing model↔clinic caveat is closed by adding a
+   replication-competent latent reservoir + an ART→ATI (treatment-interruption) schedule.
+   Post-treatment control is a **sharp CD8-strength threshold**, and the reservoir **persists
+   in every controlled case** (functional, not sterilizing, cure). A TIP — latent or bolus,
+   visible or evasive — **does not move that threshold** (at most a sub-significant nudge
+   *down*, never up). Mechanism: the TIP is parasitic on active WT, but the cure works by
+   *removing* active WT, so the TIP has no substrate where the cure succeeds and can't catch
+   the rebound where it fails. So the active-infection "antagonism" does **not** translate
+   into harm to the immune-control cure — the TIP is **inert to reservoir control**.
+7. **The one genuinely emergent (non-tautological) result**: P1.1's **early-TIP immune-
    blunting** — a dynamically-driven failure mode, not pinned by the single-pool construction.
-7. **Real-world anchor**: Simonetti's 5′-leader-defective non-suppressible viremia
+8. **Real-world anchor**: Simonetti's 5′-leader-defective non-suppressible viremia
    (JCI 2023 / Nat Commun 2026) — nature makes the TIP's packaged-but-Env-deficient payload
    in huge clones; see the [P1.3 addendum](analysis/P1.3_findings.md).
 

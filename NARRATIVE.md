@@ -110,6 +110,26 @@ got built.
   *synergy*; the design problem becomes "raise P(cure)/P(TIP-loss)," not "find the fixed point."
 
 The corpus was re-scanned the same day (Semantic Scholar) and confirmed current — one day on,
-no new papers, only citation-count drift. So the grind ends where it should: the project's own
-central question, **undecidable in the continuum, is now a measured probability** — and the
-next tool (a full stochastic phase map + exact-SSA check) is cleanly named.
+no new papers, only citation-count drift.
+
+- **P3b/P3c — map + validation.** The probability was turned into a surface (P3b): a cure needs
+  *both* strong evasion (ν≲0.25) *and* a reservoir (R≳1×A0), peaking ~31%, with zero stable
+  coexistence anywhere. Two independent checks (P3c) — dt→0 convergence and an exact reduced-
+  scale Gillespie SSA — confirmed the invariants (0% coexistence, CD8 ~82% in cures) are
+  method-independent; the cure magnitude firms to order-15%.
+
+- **P4 — the reservoir, and the real answer.** Finally the caveat that shadowed every phase:
+  the model had no replication-competent latent reservoir, so "control" never meant *cure*. P4
+  adds one, plus an ART→ATI (treatment-interruption) schedule — the actual clinical test.
+  Post-treatment control turns out to be a **sharp CD8-strength threshold**, with the reservoir
+  **persisting in every controlled case** (functional, not sterilizing, cure). And the TIP?
+  **Neutral.** Latent or bolus, visible or evasive, it does not move the control threshold. The
+  reason is structural: a TIP is parasitic on active WT, but the cure works by *removing* active
+  WT — so the TIP has no substrate where the cure succeeds, and can't catch the rebound where it
+  fails. The active-infection antagonism (P1–P3) simply **does not carry over** to the
+  reservoir-control axis that defines cure.
+
+So the grind lands somewhere honest and slightly surprising: on the axis the field actually
+cares about — durable, ART-free, immune-mediated remission — an engineered TIP is neither the
+threat the antagonism suggested nor a useful tool. It is **orthogonal to the cure**, because it
+needs the very thing the cure is built to erase.
