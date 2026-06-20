@@ -51,7 +51,9 @@ analysis/          all working files (flat, runnable in place)
   tip_model_p3b_phasemap.py      P3b  — stochastic P(cure)/P(TIP-loss) phase map over (R, nu)
   tip_model_p3c_ssa.py           P3c  — validation: dt->0 convergence + exact reduced-scale SSA
   tip_model_p4_reservoir.py      P4   — latent replication-competent reservoir + ART/ATI (model<->clinic)
-  P1_findings.md … P3_findings.md, P3b_findings.md, P4_findings.md   per-phase write-ups
+  tip_model_p4b_robustness.py    P4b  — robustness: sustained/high-psi/engaged TIP still neutral
+  tip_model_p4c_calibration.py   P4c  — calibration: ATI rebound timing vs clinical anchors
+  P1_findings.md … P4_findings.md, P4b_findings.md   per-phase write-ups
   AUDIT.md                       the self-audit + two multi-agent audit overlays
   *.png, *.npz, raw_cache.json   figures, sweep outputs, cached S2 responses
 conversation/
@@ -103,6 +105,12 @@ NARRATIVE.md                     the same thread as a readable story
    *removing* active WT, so the TIP has no substrate where the cure succeeds and can't catch
    the rebound where it fails. So the active-infection "antagonism" does **not** translate
    into harm to the immune-control cure — the TIP is **inert to reservoir control**.
+   *Robustness ([P4b](analysis/P4b_findings.md)):* the verdict holds even when the TIP is
+   continuously dosed, high-ψ, and genuinely engaged (threshold shift within noise); the only
+   regime where a TIP suppresses rebound is strong-evasive-continuously-dosed — TIP-dependent
+   chronic suppression (a "second ART"), not a durable cure. *Calibration ([P4c](analysis/P4b_findings.md)):*
+   the model's ATI rebound clock is clinically realistic **unfitted** — median 7.4 d at the
+   macaque-control setting, 10–21 d at the human-ATI setting, abolished above threshold (RIO/bNAb).
 7. **The one genuinely emergent (non-tautological) result**: P1.1's **early-TIP immune-
    blunting** — a dynamically-driven failure mode, not pinned by the single-pool construction.
 8. **Real-world anchor**: Simonetti's 5′-leader-defective non-suppressible viremia

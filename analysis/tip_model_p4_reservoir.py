@@ -53,21 +53,28 @@ def _binsplit(rng, n, f):
     return lat, n - lat
 
 
-def simulate(state0, nu, kf, t_chronic, t_art, t_ati, tip_bolus_It=0.0, dt=0.04, seed=0):
+def simulate(state0, nu, kf, t_chronic, t_art, t_ati, tip_bolus_It=0.0,
+             tip_sustained=0.0, psi=PSI, react=A_REACT, dt=0.04, seed=0):
     """Vectorized tau-leaping with CHRONIC -> ART -> ATI schedule. Arrays are per-replicate.
-    tip_bolus_It: TIP-carrier cells injected at ATI onset (TIP given at treatment interruption)."""
+    tip_bolus_It : TIP-carrier cells injected at ATI onset (TIP given at interruption).
+    tip_sustained: TIP-carrier cells supplied per day THROUGHOUT ATI (maintained dosing,
+                   so the TIP cannot wash out before the reservoir-driven rebound).
+    psi          : TIP mobilization advantage (default PSI). react: latent reactivation rate."""
     rng = np.random.default_rng(seed)
     T, Iw, It, Id, Ldef, Llat, Llatd = (state0[:, k].astype(np.float64).copy() for k in range(7))
     lam, dT, d, b, rho = P["lam"], P["dT"], P["d"], P["b"], P["rho"]
     k = QS["k"]
     n_chr, n_art, n_ati = (int(x / dt) for x in (t_chronic, t_art, t_ati))
     for n in range(n_chr + n_art + n_ati):
+        in_ati = n >= n_chr + n_art
         if n == n_chr + n_art and tip_bolus_It:           # TIP bolus at ATI onset
             It = It + tip_bolus_It
+        if in_ati and tip_sustained:                       # maintained TIP dosing through ATI
+            It = It + rng.poisson(np.full_like(It, tip_sustained * dt))
         art = 1.0 if n < n_chr else (ART_FACTOR if n < n_chr + n_art else 1.0)
         bt = b * art
         Vw = pc * (Iw + (1 - rho) * Id)
-        Vt = pc * (PSI * rho * Id)
+        Vt = pc * (psi * rho * Id)
         E = Estar(Iw + nu * Id + Ldef)            # L_lat / L_latd are SILENT (not primed against)
         kw, kd = kf * k * E, nu * kf * k * E
 
@@ -80,9 +87,9 @@ def simulate(state0, nu, kf, t_chronic, t_art, t_ati, tip_bolus_It=0.0, dt=0.04,
         ItSup = np.minimum(pois(bt * It * Vw), It.astype(np.int64))
         IwD = pois((d + kw) * Iw); ItD = pois(d * It); IdD = pois((d + kd) * Id)
         Ldef_b = pois(G * Ldef + S_SEED * (Iw + Id)); Ldef_d = pois(G * Ldef * Ldef / RDEF)
-        Llat_r = np.minimum(pois(A_REACT * Llat), Llat.astype(np.int64))
+        Llat_r = np.minimum(pois(react * Llat), Llat.astype(np.int64))
         Llat_d = pois(DL * Llat); Llat_p = pois(PL * Llat)
-        Llatd_r = np.minimum(pois(A_REACT * Llatd), Llatd.astype(np.int64))
+        Llatd_r = np.minimum(pois(react * Llatd), Llatd.astype(np.int64))
         Llatd_d = pois(DL * Llatd); Llatd_p = pois(PL * Llatd)
 
         # latency splits on the freshly infected
