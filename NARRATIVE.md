@@ -133,3 +133,27 @@ So the grind lands somewhere honest and slightly surprising: on the axis the fie
 cares about — durable, ART-free, immune-mediated remission — an engineered TIP is neither the
 threat the antagonism suggested nor a useful tool. It is **orthogonal to the cure**, because it
 needs the very thing the cure is built to erase.
+
+## 7. Calibration (P5) — anchoring the verdict, and a methods doc
+
+The last thing separating "methods + hypotheses" from a quotable result was calibration. A
+research agent pulled the clinical ATI literature (Gunst 2025, A5345, RIO, CHAMP, Hill/Davenport
+reactivation models) with citations, and P5 fit the model to it:
+
+- The **rebound clock** calibrates cleanly — `f_lat=8e-5` reproduces the ~19-day rebound median
+  against A5345's 22 days (>1000 c/mL).
+- At the CD8 settings that reproduce the clinical **post-treatment-control fractions** (placebo
+  ~5%, bNAb/RIO ~24%), a sustained, engaged TIP shifts durable control by only **+2–5 points**.
+  The earlier illustrative "neutral" is now **anchored**, not assumed. (A mid-run scare — a big
+  apparent TIP benefit — turned out to be two inconsistent definitions of "control"; unifying the
+  metric dissolved it. Logged as a methods lesson.)
+- And the fit **earns an honest limitation**: no single immune setpoint reproduces *both* the
+  fast-rebound majority (~3 wk) *and* the durable-controller minority (~5%). Real cohorts are
+  heterogeneous; quantitative fitting needs a distribution over immune strength. The calibration
+  didn't just confirm the answer — it named the next model.
+
+The methodology for all of it — equations, parameters with sources, numerical settings, and the
+audit discipline — is now consolidated in `analysis/METHODS.md`. The repo is, at this point, a
+small but complete and self-auditing computational story: a confident question, narrowed by
+negative results and relentless honesty into a calibrated, falsifiable one — *a TIP is orthogonal
+to the immune-control HIV cure* — reached from a laptop.

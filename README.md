@@ -14,9 +14,12 @@ with **multi-agent adversarial audits** of every claim.
 > immune-compatible TIP is a **low-probability outcome**, not a stable design point), then
 > tested against the actual cure target ([P4](analysis/P4_findings.md): with a
 > replication-competent latent reservoir + ART/ATI, the TIP is **neutral to post-treatment
-> control** — the active-infection antagonism does not carry over to reservoir control). The
-> work remains illustrative (un-calibrated params, one reservoir/ψ point); treat everything
-> here as hypothesis-generation and methods, audited for honesty — nothing more.
+> control**), and finally **calibrated to clinical ATI data** ([P5](analysis/P5_findings.md):
+> the rebound clock matches the ~22-day clinical median and the neutrality survives anchoring to
+> the RIO/CHAMP control fractions — while exposing that quantitative cohort fitting needs patient
+> heterogeneity). Methods are consolidated in [METHODS.md](analysis/METHODS.md). The work is a
+> calibrated-in-ballpark research log — treat it as hypothesis-generation and methods, audited
+> for honesty — nothing more.
 
 ---
 
@@ -53,7 +56,9 @@ analysis/          all working files (flat, runnable in place)
   tip_model_p4_reservoir.py      P4   — latent replication-competent reservoir + ART/ATI (model<->clinic)
   tip_model_p4b_robustness.py    P4b  — robustness: sustained/high-psi/engaged TIP still neutral
   tip_model_p4c_calibration.py   P4c  — calibration: ATI rebound timing vs clinical anchors
-  P1_findings.md … P4_findings.md, P4b_findings.md   per-phase write-ups
+  tip_model_p5_calibration.py    P5   — fit to clinical ATI data; TIP verdict survives anchoring
+  METHODS.md                     consolidated methods (equations, params, numerics, audit)
+  P1_findings.md … P4b_findings.md, P5_findings.md   per-phase write-ups
   AUDIT.md                       the self-audit + two multi-agent audit overlays
   *.png, *.npz, raw_cache.json   figures, sweep outputs, cached S2 responses
 conversation/
@@ -111,9 +116,17 @@ NARRATIVE.md                     the same thread as a readable story
    chronic suppression (a "second ART"), not a durable cure. *Calibration ([P4c](analysis/P4b_findings.md)):*
    the model's ATI rebound clock is clinically realistic **unfitted** — median 7.4 d at the
    macaque-control setting, 10–21 d at the human-ATI setting, abolished above threshold (RIO/bNAb).
-7. **The one genuinely emergent (non-tautological) result**: P1.1's **early-TIP immune-
+7. **Calibrated to clinical ATI data, the verdict holds** ([P5](analysis/P5_findings.md)): the
+   rebound clock fits A5345's ~22-day median, and at the operating points reproducing clinical
+   post-treatment-control fractions (placebo ~5%, bNAb/RIO ~24%) a sustained, engaged TIP shifts
+   durable control by only **+2–5 points** — P4b neutrality is anchored, not just illustrated.
+   The fit also **exposes a model limit**: no single immune setpoint reproduces both the
+   fast-rebound majority and the controller minority, so quantitative cohort fitting needs
+   **population heterogeneity** — the cleanly-identified next step. Methods consolidated in
+   [METHODS.md](analysis/METHODS.md).
+8. **The one genuinely emergent (non-tautological) result**: P1.1's **early-TIP immune-
    blunting** — a dynamically-driven failure mode, not pinned by the single-pool construction.
-8. **Real-world anchor**: Simonetti's 5′-leader-defective non-suppressible viremia
+9. **Real-world anchor**: Simonetti's 5′-leader-defective non-suppressible viremia
    (JCI 2023 / Nat Commun 2026) — nature makes the TIP's packaged-but-Env-deficient payload
    in huge clones; see the [P1.3 addendum](analysis/P1.3_findings.md).
 

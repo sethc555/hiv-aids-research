@@ -54,7 +54,7 @@ def _binsplit(rng, n, f):
 
 
 def simulate(state0, nu, kf, t_chronic, t_art, t_ati, tip_bolus_It=0.0,
-             tip_sustained=0.0, psi=PSI, react=A_REACT, dt=0.04, seed=0):
+             tip_sustained=0.0, psi=PSI, react=A_REACT, f_lat=F_LAT, dt=0.04, seed=0):
     """Vectorized tau-leaping with CHRONIC -> ART -> ATI schedule. Arrays are per-replicate.
     tip_bolus_It : TIP-carrier cells injected at ATI onset (TIP given at interruption).
     tip_sustained: TIP-carrier cells supplied per day THROUGHOUT ATI (maintained dosing,
@@ -93,9 +93,9 @@ def simulate(state0, nu, kf, t_chronic, t_art, t_ati, tip_bolus_It=0.0,
         Llatd_d = pois(DL * Llatd); Llatd_p = pois(PL * Llatd)
 
         # latency splits on the freshly infected
-        infW_lat, infW_prod = _binsplit(rng, infW, F_LAT)
+        infW_lat, infW_prod = _binsplit(rng, infW, f_lat)
         dual_new = IwSup + ItSup
-        dual_lat, dual_prod = _binsplit(rng, dual_new, F_LAT)
+        dual_lat, dual_prod = _binsplit(rng, dual_new, f_lat)
 
         T = np.clip(T + Tprod - Tdeath - infW - infTIP, 0, None)
         Iw = np.clip(Iw + infW_prod - IwD - IwSup + Llat_r, 0, None)
