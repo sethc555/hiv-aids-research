@@ -86,3 +86,30 @@ are individuals rather than a mean field.
 
 That's the whole shape of it: a confident question, narrowed by honest negative results and
 relentless self-audit into a small, well-posed, falsifiable one — reached from a laptop.
+
+## 6. The continuation (2026-06-20, later) — answering the handed-off question
+
+The audit left two things on the table: its #1 caveat (the antagonism is *partly
+by-construction*, single antigen pool) and its explicit successor (a stochastic model). Both
+got built.
+
+- **P2 — the two-pool test.** Replace the single antigen pool with a *dynamic, self-
+  maintaining, TIP-proof* reservoir (the Simonetti clones) that primes CD8 independently of
+  active WT — the strongest honest decoupling. The antagonism **survived it: 0/169 stable
+  immune-compatible TIP.** A primed CD8 pool kills the TIP's dual-infected factories no matter
+  where its antigen came from. So the obstruction was never the construction — it is the TIP's
+  R0≈1 **immune-fragility**. P2b (Holling-II saturating predation) then stabilized the inert
+  region but still gave **0/169** in the TIP-effective region — closing the mean-field program.
+
+- **P3 — the stochastic successor.** A tau-leaping version of the same cell model. The
+  mean-field oscillation **was a continuum artifact** — discretely there is **no stable
+  coexistence (0%)**; outcomes are a **lottery** between WT control and TIP loss. And the
+  answer the ODEs could never give: an immune-compatible TIP **does exist** (CD8 kept at 82%
+  when it works) but as a **low-probability event (~16%)**, only under strong evasion, and
+  **only with the reservoir present**. The reservoir converts the antagonism into a rare
+  *synergy*; the design problem becomes "raise P(cure)/P(TIP-loss)," not "find the fixed point."
+
+The corpus was re-scanned the same day (Semantic Scholar) and confirmed current — one day on,
+no new papers, only citation-count drift. So the grind ends where it should: the project's own
+central question, **undecidable in the continuum, is now a measured probability** — and the
+next tool (a full stochastic phase map + exact-SSA check) is cleanly named.

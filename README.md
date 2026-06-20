@@ -6,11 +6,15 @@ investigation of **therapeutic interfering particles (TIPs)** versus CD8 immune 
 with **multi-agent adversarial audits** of every claim.
 
 > ⚠️ **Status: research log, not findings for clinical or wet-lab use.**
-> The models are illustrative mean-field ODEs with un-calibrated parameters. The central
-> modeling result (a TIP↔CD8 "antagonism") is, by the project's own audit, **partly a
-> property of the model's single-antigen-pool construction**, and the model's "immune
-> clearance" term is only a **loose analogy** to the clinical "vaccinal effect." Treat
-> everything here as hypothesis-generation and methods, audited for honesty — nothing more.
+> The models are illustrative mean-field ODEs (plus a tau-leaping stochastic successor) with
+> un-calibrated parameters. The central modeling result (a TIP↔CD8 "antagonism") was probed
+> for the project's own "by-construction" caveat ([P2](analysis/P2_findings.md): it survives
+> antigen-pool decoupling, so it is driven by the TIP's R0≈1 **immune-fragility**, not the
+> single-pool construction), then re-posed stochastically ([P3](analysis/P3_findings.md): the
+> immune-compatible TIP is a **low-probability outcome**, not a stable design point). The
+> model's "immune clearance" term is still only a **loose analogy** to the clinical "vaccinal
+> effect" (no replication-competent latent reservoir is modeled). Treat everything here as
+> hypothesis-generation and methods, audited for honesty — nothing more.
 
 ---
 
@@ -39,7 +43,10 @@ analysis/          all working files (flat, runnable in place)
   tip_model_p13_wm.py / _spatial.py / p13_check.py   P1.3 — stabilized + spatial test
   tip_model_p14.py, p14_check.py P1.4 — Simonetti-grounded escape test
   tip_model_p15_stable.py        P1.5 — stable-by-construction build
-  P1_findings.md … P1.5_findings.md   per-phase write-ups
+  tip_model_p2_twopool.py        P2   — two-pool decoupled-antigen test (the audit's #1 caveat)
+  tip_model_p2b_satkill.py       P2b  — Holling-II saturating-predation control (closes mean-field)
+  tip_model_p3_stochastic.py     P3   — stochastic (tau-leaping) successor: the escape as a probability
+  P1_findings.md … P1.5_findings.md, P2_findings.md, P3_findings.md   per-phase write-ups
   AUDIT.md                       the self-audit + two multi-agent audit overlays
   *.png, *.npz, raw_cache.json   figures, sweep outputs, cached S2 responses
 conversation/
@@ -62,9 +69,24 @@ NARRATIVE.md                     the same thread as a readable story
    (caught by convergence checks). The stable-by-construction build (P1.5) shows
    *immune-pressure + TIP-evasion + a stable fixed point are mutually incompatible* in these
    mean-field ODEs — so the escape question needs a **stochastic/agent-based** successor.
-4. **The one genuinely emergent (non-tautological) result**: P1.1's **early-TIP immune-
+4. **The antagonism is *not* merely by-construction** ([P2](analysis/P2_findings.md)): the
+   audit's central caveat was that a single antigen pool makes the antagonism semi-definitional.
+   P2 decouples it — a dynamic, self-maintaining, TIP-proof reservoir antigen pool (Simonetti
+   clones) primes CD8 independently of active WT. Even so, **0/169 stable immune-compatible
+   TIP**: a primed CD8 pool kills the TIP's dual-infected factories regardless of where the
+   antigen came from. The obstruction is the TIP's R0 ≈ 1 **immune-fragility**, not the
+   construction — which *narrows* the open question to one falsifiable condition (stable ν<1
+   carrier evasion) for the stochastic/ABM successor.
+5. **The escape is a *probability*, not a fixed point** ([P3](analysis/P3_findings.md)): the
+   stochastic (tau-leaping) successor dissolves the mean-field oscillation — it was a continuum
+   artifact (**0% stable coexistence**). Outcomes are a **lottery** between WT control ("cure")
+   and TIP loss. An immune-compatible TIP **does exist** (CD8 kept at 82% when it works) but is
+   a **low-probability event (~16%)**, only under strong immune evasion, and **only with the
+   reservoir present** (R=0 → 0%) — the reservoir converts the antagonism into a rare *synergy*.
+   The design objective shifts from "find the stable escape" to "raise P(cure)/P(TIP-loss)."
+6. **The one genuinely emergent (non-tautological) result**: P1.1's **early-TIP immune-
    blunting** — a dynamically-driven failure mode, not pinned by the single-pool construction.
-5. **Real-world anchor**: Simonetti's 5′-leader-defective non-suppressible viremia
+7. **Real-world anchor**: Simonetti's 5′-leader-defective non-suppressible viremia
    (JCI 2023 / Nat Commun 2026) — nature makes the TIP's packaged-but-Env-deficient payload
    in huge clones; see the [P1.3 addendum](analysis/P1.3_findings.md).
 
@@ -85,6 +107,8 @@ pip install -r requirements.txt
 cd analysis
 python3 tip_model.py                 # P1 base model + phase diagram
 python3 tip_model_p15_stable.py      # P1.5 stable build + escape test
+python3 tip_model_p2_twopool.py      # P2 two-pool decoupled-antigen test
+python3 tip_model_p3_stochastic.py   # P3 stochastic successor (outcome distribution)
 # corpus rebuild needs a Semantic Scholar API key in $S2_API_KEY:
 S2_API_KEY=... python3 scan.py
 ```

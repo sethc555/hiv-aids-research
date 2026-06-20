@@ -1,5 +1,5 @@
 # HIV-cure frontier — Semantic Scholar scan
-_Generated 2026-06-19 via S2 Graph API · 18 topics · 186 unique papers._
+_Generated 2026-06-20 via S2 Graph API · 18 topics · 186 unique papers._
 
 ## ★ Most-cited across all topics (seminal anchors)
 
@@ -481,7 +481,7 @@ _Generated 2026-06-19 via S2 Graph API · 18 topics · 186 unique papers._
   https://doi.org/10.1038/s41467-020-20442-3
   > The Intact Proviral DNA Assay (IPDA) was developed to address the critical need for a scalable method for intact HIV-1 reservoir quantification. This droplet digital PCR-based assay simultaneously targets two HIV-1 regions to distinguish genomically intact proviruses against a large background of defective ones, and its application has yielded insights into HIV-1 persistence. Reports of assay failures however, attrib…
 - **Intact Proviral DNA Analysis of the Brain Viral Reservoir and Relationship to Neuroinflammation in People with HIV on Suppressive Antiretroviral Therapy** (2023)
-  — D. Gabuzda, Jun Yin, V. Misra, et al. · _Viruses_ · **29 cites** (infl 2)  ·  OA-PDF
+  — D. Gabuzda, Jun Yin, V. Misra, et al. · _Viruses_ · **30 cites** (infl 3)  ·  OA-PDF
   https://doi.org/10.3390/v15041009
   > HIV establishes a persistent viral reservoir in the brain despite viral suppression in blood to undetectable levels on antiretroviral therapy (ART). The brain viral reservoir in virally suppressed HIV+ individuals is not well-characterized. In this study, intact, defective, and total HIV proviral genomes were measured in frontal lobe white matter from 28 virally suppressed individuals on ART using the intact proviral…
 - **Intact HIV reservoir estimated by the intact proviral DNA assay correlates with levels of total and integrated DNA in the blood during suppressive antiretroviral therapy.** (2020)
@@ -493,7 +493,7 @@ _Generated 2026-06-19 via S2 Graph API · 18 topics · 186 unique papers._
   https://doi.org/10.1016/j.ymeth.2021.05.006
   > The development of an HIV-1 cure is hampered by the existence of a persistent (latent) reservoir that contains a small proportion of replication-competent intact proviruses which refuels viral replication upon treatment discontinuation. Therefore, an accurate evaluation and quantification of these (intact) proviruses is essential to determine the efficacy of HIV-1 cure strategies which aim to eliminate this reservoir…
 - **Development of a highly sensitive and specific intact proviral DNA assay for HIV-1 subtype B and C** (2024)
-  — N. Buchholtz, M. M. Nühn, T. D. de Jong, et al. · _Virology Journal_ · **20 cites** (infl 1)  ·  OA-PDF
+  — N. Buchholtz, M. M. Nühn, T. D. de Jong, et al. · _Virology Journal_ · **19 cites** (infl 1)  ·  OA-PDF
   https://doi.org/10.1186/s12985-024-02300-6
   > HIV reservoir quantification is essential for evaluation of HIV curative strategies and may provide valuable insights about reservoir dynamics during antiretroviral therapy. The Intact Proviral DNA Assay (IPDA) provides the unique opportunity to quantify the intact and defective reservoir. The current IPDA is optimized for HIV-1 subtype B, the dominant subtype in resource-rich settings. However, subtype C is dominant…
 - **Adaptation of the intact proviral DNA assay to a nanowell-based digital PCR platform** (2023)
@@ -545,7 +545,7 @@ _Generated 2026-06-19 via S2 Graph API · 18 topics · 186 unique papers._
   https://doi.org/10.3791/58016
   > The Full-Length Individual Proviral Sequencing (FLIPS) assay is an efficient and high-throughput method designed to amplify and sequence single, near full-length (intact and defective), HIV-1 proviruses. FLIPS allows determination of the genetic composition of integrated HIV-1 within a cell population. Through identifying defects within HIV-1 proviral sequences that arise during reverse transcription, such as large i…
 - **Development of a highly sensitive and specific intact proviral DNA assay for HIV-1 subtype B and C** (2024)
-  — N. Buchholtz, M. M. Nühn, T. D. de Jong, et al. · _Virology Journal_ · **20 cites** (infl 1)  ·  OA-PDF
+  — N. Buchholtz, M. M. Nühn, T. D. de Jong, et al. · _Virology Journal_ · **19 cites** (infl 1)  ·  OA-PDF
   https://doi.org/10.1186/s12985-024-02300-6
   > HIV reservoir quantification is essential for evaluation of HIV curative strategies and may provide valuable insights about reservoir dynamics during antiretroviral therapy. The Intact Proviral DNA Assay (IPDA) provides the unique opportunity to quantify the intact and defective reservoir. The current IPDA is optimized for HIV-1 subtype B, the dominant subtype in resource-rich settings. However, subtype C is dominant…
 - **NanoHIV: A Bioinformatics Pipeline for Producing Accurate, Near Full-Length HIV Proviral Genomes Sequenced Using the Oxford Nanopore Technology** (2021)
@@ -553,7 +553,7 @@ _Generated 2026-06-19 via S2 Graph API · 18 topics · 186 unique papers._
   https://doi.org/10.3390/cells10102577
   > HIV-1 proviral single-genome sequencing by limiting-dilution polymerase chain reaction (PCR) amplification is important for differentiating the sequence-intact from defective proviruses that persist during antiretroviral therapy (ART). Intact proviruses may rebound if ART is interrupted and are the barrier to an HIV cure. Oxford Nanopore Technologies (ONT) sequencing offers a promising, cost-effective approach to the…
 - **Profound reduction of HIV-1 reservoir cells over 3 decades of antiretroviral therapy started in early infancy** (2024)
-  — Liliana Vela, Leah Carrere, C. Naasz, et al. · _JCI Insight_ · **13 cites** (infl 2)
+  — Liliana Vela, Leah Carrere, C. Naasz, et al. · _JCI Insight_ · **12 cites** (infl 1)
   https://doi.org/10.1172/jci.insight.186550
   > HIV-1 reservoir cells persist indefinitely during suppressive antiretroviral therapy (ART) in individuals who acquire infection in adulthood, but little is known about the longitudinal evolution of viral reservoir cells during long-term ART started during early infancy. We studied 2 fraternal twins who acquired HIV-1 perinatally, started ART at week 10 after birth and remained on ART for 28 years. We observed that th…
 
@@ -938,7 +938,7 @@ _Generated 2026-06-19 via S2 Graph API · 18 topics · 186 unique papers._
 - **Antigen Stimulation Reactivates HIV-1 Proviruses Despite Integration in Repressive Chromatin** (2026)
   — A. Camilo-Contreras, Filippo Dragoni, Hao Zhang, et al. · _bioRxiv_ · **0 cites** (infl 0)
   https://doi.org/10.64898/2026.06.11.731680
-  > _no abstract_
+  > Intact HIV-1 proviruses become progressively enriched in transcriptionally repressive genomic regions during long-term antiretroviral therapy (ART) and in elite controllers, raising questions about their capacity for reactivation in vivo. We used an antigen-restricted quantitative viral outgrowth assay (ag qVOA) to test whether cognate antigen stimulation can reverse latency of proviruses integrated within repressive…
 
 ## Predictors of time-to-rebound at ATI (the MODELING problem)
 `predictors time to viral rebound analytical treatment interruption biomarker HIV`  · years=2018-2026
