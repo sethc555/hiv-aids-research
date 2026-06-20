@@ -46,7 +46,9 @@ analysis/          all working files (flat, runnable in place)
   tip_model_p2_twopool.py        P2   — two-pool decoupled-antigen test (the audit's #1 caveat)
   tip_model_p2b_satkill.py       P2b  — Holling-II saturating-predation control (closes mean-field)
   tip_model_p3_stochastic.py     P3   — stochastic (tau-leaping) successor: the escape as a probability
-  P1_findings.md … P1.5_findings.md, P2_findings.md, P3_findings.md   per-phase write-ups
+  tip_model_p3b_phasemap.py      P3b  — stochastic P(cure)/P(TIP-loss) phase map over (R, nu)
+  tip_model_p3c_ssa.py           P3c  — validation: dt->0 convergence + exact reduced-scale SSA
+  P1_findings.md … P3_findings.md, P3b_findings.md   per-phase write-ups
   AUDIT.md                       the self-audit + two multi-agent audit overlays
   *.png, *.npz, raw_cache.json   figures, sweep outputs, cached S2 responses
 conversation/
@@ -84,6 +86,10 @@ NARRATIVE.md                     the same thread as a readable story
    a **low-probability event (~16%)**, only under strong immune evasion, and **only with the
    reservoir present** (R=0 → 0%) — the reservoir converts the antagonism into a rare *synergy*.
    The design objective shifts from "find the stable escape" to "raise P(cure)/P(TIP-loss)."
+   The [P3b](analysis/P3b_findings.md) phase map makes this a surface — cure needs **both**
+   strong evasion (ν≲0.25) **and** a reservoir (R≳1×A0), peaking ~31%, zero coexistence
+   anywhere — and [P3c](analysis/P3b_findings.md) validates it (dt→0 + an exact reduced-scale
+   SSA: invariants method-independent; cure magnitude order-15%).
 6. **The one genuinely emergent (non-tautological) result**: P1.1's **early-TIP immune-
    blunting** — a dynamically-driven failure mode, not pinned by the single-pool construction.
 7. **Real-world anchor**: Simonetti's 5′-leader-defective non-suppressible viremia

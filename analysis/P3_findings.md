@@ -67,6 +67,10 @@ mean-field oscillation (a continuum artifact) into a quantified outcome distribu
 turned an *undecidable* question into a *measured probability*. The immune-compatible TIP is
 real but rare, evasion-dependent, and reservoir-enabled.
 
+_Update: the phase map + validation ([P3b/P3c](P3b_findings.md)) firm the cure estimate to
+**order-15% (≈10–20% across dt and an exact reduced-scale SSA)** and confirm the invariants
+(0% coexistence, CD8 ~82%) are method-independent; the qualitative headline below stands._
+
 _Caveats: tau-leaping (dt-robust at two step sizes, but not an exact SSA); illustrative
 Perelson-class params; **"WT controlled" = extinction of active-infection compartments**, NOT
 eradication of a replication-competent latent reservoir (the model still has none — the same

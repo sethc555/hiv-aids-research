@@ -75,7 +75,7 @@ def classify(final, nu, E0):
     """Per-replicate absorbing-state classification + CD8 retention."""
     T, Iw, It, Id, L = (final[:, k] for k in range(5))
     Vw = pc * (Iw + (1 - P["rho"]) * Id)
-    cd8 = Estar(Iw + nu * Id + L) / max(E0, 1e-9)
+    cd8 = Estar(Iw + nu * Id + L) / np.maximum(E0, 1e-9)
     wt_gone = (Iw + Id) < 1                       # no WT-producing cells -> functional control
     tip_gone = (It + Id) < 1                       # TIP lineage extinct
     coexist = (~wt_gone) & (~tip_gone) & (Vw < 1e4)   # both present AND WT suppressed
