@@ -16,10 +16,11 @@ with **multi-agent adversarial audits** of every claim.
 > replication-competent latent reservoir + ART/ATI, the TIP is **neutral to post-treatment
 > control**), and finally **calibrated to clinical ATI data** ([P5](analysis/P5_findings.md):
 > the rebound clock matches the ~22-day clinical median and the neutrality survives anchoring to
-> the RIO/CHAMP control fractions — while exposing that quantitative cohort fitting needs patient
-> heterogeneity). Methods are consolidated in [METHODS.md](analysis/METHODS.md). The work is a
-> calibrated-in-ballpark research log — treat it as hypothesis-generation and methods, audited
-> for honesty — nothing more.
+> the RIO/CHAMP control fractions), and finally fit at the **patient-population level**
+> ([P6](analysis/P6_findings.md): a heterogeneous cohort reproduces the whole ATI rebound
+> Kaplan-Meier curve, and the TIP still moves post-treatment control by ~1 point). Methods are
+> consolidated in [METHODS.md](analysis/METHODS.md). The work is a calibrated research log —
+> treat it as hypothesis-generation and methods, audited for honesty — nothing more.
 
 ---
 
@@ -57,8 +58,9 @@ analysis/          all working files (flat, runnable in place)
   tip_model_p4b_robustness.py    P4b  — robustness: sustained/high-psi/engaged TIP still neutral
   tip_model_p4c_calibration.py   P4c  — calibration: ATI rebound timing vs clinical anchors
   tip_model_p5_calibration.py    P5   — fit to clinical ATI data; TIP verdict survives anchoring
+  tip_model_p6_heterogeneous.py  P6   — patient population (kf+reservoir distribution); KM-curve fit
   METHODS.md                     consolidated methods (equations, params, numerics, audit)
-  P1_findings.md … P4b_findings.md, P5_findings.md   per-phase write-ups
+  P1_findings.md … P5_findings.md, P6_findings.md   per-phase write-ups
   AUDIT.md                       the self-audit + two multi-agent audit overlays
   *.png, *.npz, raw_cache.json   figures, sweep outputs, cached S2 responses
 conversation/
@@ -124,6 +126,12 @@ NARRATIVE.md                     the same thread as a readable story
    fast-rebound majority and the controller minority, so quantitative cohort fitting needs
    **population heterogeneity** — the cleanly-identified next step. Methods consolidated in
    [METHODS.md](analysis/METHODS.md).
+   *Heterogeneous fit ([P6](analysis/P6_findings.md)):* a patient population `kf ~ Normal(10, 2.5)`
+   + a reservoir-clock distribution closes the whole rebound **Kaplan-Meier curve** at once
+   (median 20.8 d, wk12 78%, **PTC 5%** — matching A5345/ACTG/CHAMP), resolving the P5 tension.
+   On this clinically-fit cohort the TIP moves post-treatment control by **−1 point (5%→4%, KM
+   curves coincide)** — the **final, patient-level confirmation** that a TIP is orthogonal to the
+   immune-control cure.
 8. **The one genuinely emergent (non-tautological) result**: P1.1's **early-TIP immune-
    blunting** — a dynamically-driven failure mode, not pinned by the single-pool construction.
 9. **Real-world anchor**: Simonetti's 5′-leader-defective non-suppressible viremia

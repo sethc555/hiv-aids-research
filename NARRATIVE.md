@@ -153,7 +153,20 @@ reactivation models) with citations, and P5 fit the model to it:
   didn't just confirm the answer — it named the next model.
 
 The methodology for all of it — equations, parameters with sources, numerical settings, and the
-audit discipline — is now consolidated in `analysis/METHODS.md`. The repo is, at this point, a
-small but complete and self-auditing computational story: a confident question, narrowed by
-negative results and relentless honesty into a calibrated, falsifiable one — *a TIP is orthogonal
-to the immune-control HIV cure* — reached from a laptop.
+audit discipline — is now consolidated in `analysis/METHODS.md`.
+
+## 8. Heterogeneity (P6) — the curve closes, the verdict is final
+
+P5 didn't just calibrate; it named its own successor. A single immune setpoint couldn't be both
+the fast-rebound majority and the controller minority, so P6 made each replicate a *patient* with
+its own immune strength and reservoir clock, drawn from population distributions, and fit the
+**whole rebound Kaplan-Meier curve**. It closes: `kf ~ Normal(10, 2.5)` reproduces the clinical
+median (20.8 d), the week-12 rebound fraction (78%), and the spontaneous post-treatment-control
+fraction (5%) — all at once. The controllers are simply the upper tail of the immune
+distribution; the tension P5 found was real, and heterogeneity is its resolution. And on this
+clinically-fit population the TIP moves post-treatment control by a single point (5%→4%, the KM
+curves lying on top of each other). The answer the whole project was built to reach is now stated
+at the level the field measures it — patient cohorts, rebound curves — and it is the same answer:
+*a TIP is orthogonal to the immune-control HIV cure.* A confident question, narrowed by negative
+results and relentless honesty into a calibrated, falsifiable, and now patient-level one —
+reached from a laptop.
