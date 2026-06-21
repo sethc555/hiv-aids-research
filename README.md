@@ -59,8 +59,9 @@ analysis/          all working files (flat, runnable in place)
   tip_model_p4c_calibration.py   P4c  — calibration: ATI rebound timing vs clinical anchors
   tip_model_p5_calibration.py    P5   — fit to clinical ATI data; TIP verdict survives anchoring
   tip_model_p6_heterogeneous.py  P6   — patient population (kf+reservoir distribution); KM-curve fit
+  tip_model_p8_boosters.py       P8   — booster vaccines: titration rule + reservoir×immunity synergy
   METHODS.md                     consolidated methods (equations, params, numerics, audit)
-  P1_findings.md … P5_findings.md, P6_findings.md   per-phase write-ups
+  P1_findings.md … P6_findings.md, P8_boosters.md   per-phase write-ups
   AUDIT.md                       the self-audit + two multi-agent audit overlays
   *.png, *.npz, raw_cache.json   figures, sweep outputs, cached S2 responses
 conversation/
@@ -134,7 +135,13 @@ NARRATIVE.md                     the same thread as a readable story
    immune-control cure.
 8. **The one genuinely emergent (non-tautological) result**: P1.1's **early-TIP immune-
    blunting** — a dynamically-driven failure mode, not pinned by the single-pool construction.
-9. **Real-world anchor**: Simonetti's 5′-leader-defective non-suppressible viremia
+9. **The positive mirror — what *would* help** ([P8](analysis/P8_boosters.md)): unlike the TIP,
+   a booster vaccine/antibody acts **directly** on immune control, so it helps. The model gives a
+   titration rule: a **single boost only delays rebound**; sustained dosing **banks treatment-free
+   cures**; control tracks the **trough not the peak** (maintain ≈1.5× baseline immunity, interval
+   set by immunity's half-life); and the real room is the **reservoir×immunity synergy** — neither
+   lever alone exceeds ~30–40%, but reservoir reduction + boosting together reach **~70–96%** cure.
+10. **Real-world anchor**: Simonetti's 5′-leader-defective non-suppressible viremia
    (JCI 2023 / Nat Commun 2026) — nature makes the TIP's packaged-but-Env-deficient payload
    in huge clones; see the [P1.3 addendum](analysis/P1.3_findings.md).
 

@@ -170,3 +170,18 @@ at the level the field measures it — patient cohorts, rebound curves — and i
 *a TIP is orthogonal to the immune-control HIV cure.* A confident question, narrowed by negative
 results and relentless honesty into a calibrated, falsifiable, and now patient-level one —
 reached from a laptop.
+
+## 9. The positive program (P8) — what *would* help
+
+A negative result earns the right to ask the positive one. The TIP fails because it's parasitic
+on the virus the cure erases — so what acts *directly* on immune control? A booster vaccine /
+therapeutic antibody. Run on the same fit cohort, it gives a clean dosing logic: a **single shot
+only delays** rebound (the bNAb pattern), **sustained dosing banks treatment-free cures**, and —
+the elegant part — **control tracks the trough between doses, not the peak**: you must keep
+immunity above a maintenance threshold (≈1.5× baseline), at an interval set by how fast immunity
+wanes, for a few years, to win the stochastic extinction race. And the real headroom isn't more
+immunity — it's the **reservoir×immunity synergy**: neither shrinking the reservoir nor boosting
+immunity alone clears ~30–40%, but together they reach ~70–96%. That is exactly the prescription
+the diseases we *have* cured hand over — CML's depth-and-duration-of-response, the bNAb trials'
+trough-and-combination logic — now on one quantitative axis. The project closes where it should:
+having shown what doesn't work, and pointed at what does.

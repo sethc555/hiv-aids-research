@@ -70,6 +70,7 @@ threshold `ψ ≈ 7.5` (verified by next-generation matrix **and** direct ODE). 
 | **P4c** | record ATI rebound time | check rebound clock is clinically realistic |
 | **P5** | fit reactivation rate + CD8 strength to clinical ATI curves | quantitative (not just qualitative) verdict |
 | **P6** | **population distributions** over kf + reservoir clock; fit the KM curve | resolve P5's single-kf mis-spec; patient-level verdict |
+| **P8** | time-varying immune boosting + reservoir reduction on the fit cohort | the positive program: titration rule + reservoir×immunity synergy |
 
 ### Quasi-steady-state (QSS) reductions
 - **Immunity (P1.3+):** effectors equilibrate fast relative to cell turnover →
