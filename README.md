@@ -145,6 +145,23 @@ NARRATIVE.md                     the same thread as a readable story
    (JCI 2023 / Nat Commun 2026) — nature makes the TIP's packaged-but-Env-deficient payload
    in huge clones; see the [P1.3 addendum](analysis/P1.3_findings.md).
 
+## Verifying the claim chain
+
+Every load-bearing number in this README is **machine-checkable**. Run:
+
+```bash
+cd analysis && python3 verify_claims.py     # 14/14 checks, exit 0
+```
+
+It independently re-derives each headline claim from the phase modules and asserts it within a
+tolerance — R0=8.70, the TIP invasion threshold (~7.5) and immunity-collapse (P1), P3's 0%
+stable coexistence / ~order-15% cure / ~82% CD8, P4's sharp control threshold and TIP-neutrality,
+P6's spontaneous-control fraction (~5%) and clinical rebound median (~20 d), and P8's trough rule
+and reservoir×immunity synergy. A regression in any script trips a FAIL. Stochastic checks use
+reduced replicate counts (direction/order, not last digit); the precise figures live in the
+findings docs. Claims the audit *retracted* (oscillation-fragile P1 magnitudes) are deliberately
+**not** asserted — the harness checks the robust versions the audit upholds.
+
 ## Auditing
 
 Every claim was put through adversarial review — see [AUDIT.md](analysis/AUDIT.md):
