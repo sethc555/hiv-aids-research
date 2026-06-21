@@ -94,4 +94,15 @@ illustrative; the robust, transferable findings are the STRUCTURE — single-sho
 sustained cures, trough-not-peak, frequency-over-amplitude, level-sets-ceiling/duration-fills-it,
 and the reservoir×immunity synergy. Same heterogeneous cohort and illustrative reservoir
 dynamics as P4–P6; "cure" = active-infection extinction with no rebound, the functional (not
-provably sterilizing) endpoint discussed in [P4_findings.md](P4_findings.md)._
+provably sterilizing) endpoint discussed in [P4_findings.md](P4_findings.md). NB (AUDIT2 #6): the
+reservoir×immunity "synergy" is, in a stochastic-extinction model, partly **structural** —
+fewer rebound seeds × faster killing is super-additive in P(extinction) by construction — so the
+robust claim is the **direction** (combination ≫ either lever), not synergy-as-discovery._
+
+**Cross-disease references** (AUDIT2 #4 — these underpin the "cured-disease prescription" framing):
+the CML treatment-free-remission "depth **and** duration of response" rule — Saussele et al.,
+EURO-SKI, *Lancet Oncol* 2018 (~50% TFR); the CML cure-by-stochastic-extinction result —
+Lenaerts, Pacheco, Traulsen, Dingli, *Haematologica* 2010 (P(extinction)→1−1/N); extinction
+through an ODE-invisible trough — Baar & Bovier, *Sci Rep* 2016; "lessons from cancer immunology"
+for HIV T-cell reservoir control — Mylvaganam, Maus, Walker, *Front Immunol* 2019; bNAb
+trough/combination logic — RIO trial, Lee/Fidler et al., *Lancet HIV* 2026.

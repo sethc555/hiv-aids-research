@@ -15,7 +15,7 @@ report the fit's uncertainty honestly.
 |---|---|---|---|---|
 | placebo/untreated rebound median | **16 d** (>50), **21 d** (>400), **32 d** (>10⁴ c/mL) | confirmed VL crossing | 382 | Gunst, *Nat Commun* 2025;16:906 |
 | placebo rebound median (modern ART) | **22 d** (range 13–230) | first VL ≥1000 c/mL | 45 | Li, *Clin Infect Dis* 2022 (A5345) |
-| rebounded by wk4 / wk12 | **~66% / ~77%** | ≥200 c/mL confirmed | 235 | ACTG pooled (PMC4911279) |
+| rebounded by wk4 / wk12 | **~66% / ~83%** | ≥200 c/mL confirmed | 235 | ACTG pooled (PMC4911279) |
 | spontaneous post-treatment control | **4%** chronic / **13%** early | VL≤400 ≥24 wk off-ART | 460/148 | Namazi, *JID* 2018 (CHAMP) |
 | **bNAb durable control (RIO)** | **24%** (7/29) vs **6%** placebo | VL<1000 beyond 96 wk | 34/arm | Lee/Fidler, *Lancet HIV* 2026 |
 | reservoir reactivation (modeling) | **~0.125/d** (Davenport) … **~4/d** (Hill) | successful reactivation | — | Pinkevych 2015 / Hill 2014 PNAS |

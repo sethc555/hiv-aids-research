@@ -92,81 +92,55 @@ def cohort_burn(N=120, m_kf=10.0, s_kf=2.5, seed=7):
     return _BURN[key]
 
 
-def _ati_control(art, kf_func, resv_scale=1.0, t_ati=900.0, dt=0.05, tip_sustained=0.0,
-                 psi=60.0, nu=1.0, seed=2, detect=1000.0):
-    """Generic ATI from a burn-in tuple (kf_base, f_lat, ART_state).
-    Returns (P(durable control), median rebound day). kf_func(t, kf_base) -> kf array."""
-    from tip_model import P
-    from tip_model_p4_reservoir import pc, DL, PL, G, RDEF, S_SEED, A_REACT
-    from tip_model_p13_wm import QS, Estar
-    kf_base, f_lat, A = art
-    T, Iw, It, Id, Ldef, Llat, Llatd = (A[:, j].astype(float).copy() for j in range(7))
-    Llat = Llat * resv_scale
-    lam, dT, d, b, rho = P["lam"], P["dT"], P["d"], P["b"], P["rho"]; k = QS["k"]
-    N = len(kf_base); rng = np.random.default_rng(seed); treb = np.full(N, np.nan)
-    for n in range(int(t_ati / dt)):
-        t = n * dt; Vw = pc * (Iw + (1 - rho) * Id); treb[np.isnan(treb) & (Vw > detect)] = t
-        if tip_sustained:
-            It = It + rng.poisson(np.full(N, tip_sustained * dt))
-        kf = np.maximum(kf_base, kf_func(t, kf_base))
-        Vt = pc * (psi * rho * Id)
-        E = Estar(Iw + nu * Id + Ldef); kw, kd = kf * k * E, nu * kf * k * E
-
-        def po(r):
-            return rng.poisson(np.clip(r, 0, None) * dt)
-        Tp = po(np.full(N, lam)); Td = po(dT * T)
-        iW = po(b * T * Vw); iT = po(b * T * Vt)
-        iWs = np.minimum(po(b * Iw * Vt), Iw.astype(np.int64)); iTs = np.minimum(po(b * It * Vw), It.astype(np.int64))
-        iWd = po((d + kw) * Iw); iTd = po(d * It); idd = po((d + kd) * Id)
-        Lb = po(G * Ldef + S_SEED * (Iw + Id)); Ld = po(G * Ldef * Ldef / RDEF)
-        lr = np.minimum(po(A_REACT * Llat), Llat.astype(np.int64)); ldd = po(DL * Llat); lp = po(PL * Llat)
-        ldr = np.minimum(po(A_REACT * Llatd), Llatd.astype(np.int64)); lddd = po(DL * Llatd); ldp = po(PL * Llatd)
-        lat = rng.binomial(np.maximum(iW.astype(np.int64), 0), f_lat)
-        T = np.clip(T + Tp - Td - iW - iT, 0, None)
-        Iw = np.clip(Iw + (iW - lat) - iWd - iWs + lr, 0, None)
-        It = np.clip(It + iT - iTd - iTs, 0, None)
-        Id = np.clip(Id + (iWs + iTs) - idd + ldr, 0, None)
-        Ldef = np.clip(Ldef + Lb - Ld, 0, None)
-        Llat = np.clip(Llat + lat - lr - ldd + lp, 0, None)
-        Llatd = np.clip(Llatd - ldr - lddd + ldp, 0, None)
-    reb = treb[~np.isnan(treb)]
-    med = np.median(reb) if len(reb) else np.inf
-    return float(np.mean(np.isnan(treb))), med
-
-
 def verify_p4_p6():
-    print("P4/P5/P6 — reservoir, calibration, cohort (reduced cohort N=120):")
-    art = cohort_burn()
-    # P4: control is a SHARP threshold in kf (homogeneous-ish via constant high/low)
-    c_lo, _ = _ati_control(art, lambda t, kb: 8.0, seed=11)
-    c_hi, _ = _ati_control(art, lambda t, kb: 18.0, seed=12)
-    check("P4 control sharp: low immunity -> low control", 100 * c_lo, 0, 25)
-    check("P4 control sharp: high immunity -> high control", 100 * c_hi, 35, 100, "(threshold behaviour)")
-    # P4 TIP neutrality: no-TIP vs sustained TIP at a mid level -> within tolerance
-    c_no, _ = _ati_control(art, lambda t, kb: kb, seed=21)
-    c_tip, _ = _ati_control(art, lambda t, kb: kb, tip_sustained=2000.0, psi=60.0, nu=0.9, seed=22)
-    check("P4 TIP ~neutral (|dControl| small)", 100 * abs(c_tip - c_no), 0, 20, f"(noTIP {100*c_no:.0f}%, +TIP {100*c_tip:.0f}%)")
-    # P6: fitted cohort PTC ~5% and rebound median in clinical range (natural immunity, no boost)
-    ptc, med = _ati_control(art, lambda t, kb: kb, seed=31)
+    # AUDIT2 #1 FIX: exercise the PRODUCTION engine (simulate / P6.rebound_curve), not a copy.
+    print("P4/P5/P6 — via PRODUCTION simulate()/rebound_curve:")
+    from tip_model import T0
+    from tip_model_p4_reservoir import simulate
+    import tip_model_p6_heterogeneous as P6
+    kf_base, f_lat, _ = cohort_burn()
+    n = len(kf_base)
+
+    def ctrl(level, tip=False, seed=0):
+        kf_arr = np.full(n, float(level)) if np.isscalar(level) else level
+        s0 = np.zeros((n, 7)); s0[:, 0] = T0; s0[:, 1] = 10
+        if tip:                                  # P4's headline arm: latent/engineered TIP (nu=0.9)
+            s0[:, 3] = 10; s0[:, 6] = 50         # seed Id + latent dual L_latd
+        f = simulate(s0, 0.9 if tip else 1.0, kf_arr, 500.0, 300.0, 500.0, f_lat=f_lat, seed=seed)
+        return float(((f[:, 1] + f[:, 3]) < 50).mean())
+
+    check("P4 control sharp: low immunity -> low control", 100 * ctrl(8.0, seed=11), 0, 25)
+    check("P4 control sharp: high immunity -> high control", 100 * ctrl(18.0, seed=12), 35, 100, "(threshold)")
+    # P4 HEADLINE neutrality = the latent/engineered TIP arm (NOT the sustained 'second-ART' arm,
+    # which P4b/P8 show DOES help via TIP-dependent suppression -- AUDIT2 #7). Band tightened from
+    # the original near-vacuous [0,20] (AUDIT2 #8).
+    c_no, c_tip = ctrl(kf_base, seed=21), ctrl(kf_base, tip=True, seed=22)
+    check("P4 latent-TIP ~neutral (|dControl|<=12pts)", 100 * abs(c_tip - c_no), 0, 12,
+          f"(noTIP {100*c_no:.0f}%, +latentTIP {100*c_tip:.0f}%)")
+
+    # P6: production rebound_curve + km_summary on the fitted cohort
+    kf6, fl6 = P6.draw_cohort(10.0, 2.5, np.random.default_rng(7))
+    med, f4, f12, ptc = P6.km_summary(P6.rebound_curve(kf6, fl6, t_ati=500.0, seed=31))
     check("P6 spontaneous PTC ~5%", 100 * ptc, 1, 12, "(CHAMP/Gunst ~4-5%)")
     check("P6 rebound median in clinical range 12-30d", med, 12, 32, "(A5345 ~22d)")
 
 
 def verify_p8():
-    print("P8 — boosters: trough rule + reservoir x immunity synergy (reduced):")
-    art = cohort_burn()
-    # trough rule: same PEAK (18), two decay rates -> higher trough must give >= control
-    def boosted(thalf):
-        return lambda t, kb: 10.0 + 8.0 * 0.5 ** ((t - (t // 120) * 120) / thalf)
-    c_lowtrough, _ = _ati_control(art, boosted(20), seed=41)   # trough ~10
-    c_hitrough, _ = _ati_control(art, boosted(120), seed=42)   # trough ~14
+    # AUDIT2 #1 FIX: call the PRODUCTION P8.run() (its own ATI loop), not a copy.
+    print("P8 — via PRODUCTION run() (trough rule + reservoir x immunity synergy):")
+    import tip_model_p8_boosters as P8
+    def boosted(thalf):                          # P8.run's level_func takes (t) only
+        return lambda t: 10.0 + 8.0 * 0.5 ** ((t - (t // 120) * 120) / thalf)
+    c_lowtrough = P8.run(boosted(20), t_ati=500.0, seed=41)    # trough ~10
+    c_hitrough = P8.run(boosted(120), t_ati=500.0, seed=42)    # trough ~14
     check("P8 trough rule: higher trough -> more control (same peak)",
           100 * (c_hitrough - c_lowtrough), 3, 100, f"(trough10 {100*c_lowtrough:.0f}% vs trough14 {100*c_hitrough:.0f}%)")
-    # synergy: reservoir reduction raises cure at fixed immunity
-    c_full, _ = _ati_control(art, lambda t, kb: 13.0, resv_scale=1.0, seed=51)
-    c_small, _ = _ati_control(art, lambda t, kb: 13.0, resv_scale=0.1, seed=52)
+    # synergy: reservoir reduction raises cure at fixed immunity (production P8.run, resv_scale)
+    c_full = P8.run(lambda t: 13.0, resv_scale=1.0, t_ati=500.0, seed=51)
+    c_small = P8.run(lambda t: 13.0, resv_scale=0.1, t_ati=500.0, seed=52)
     check("P8 synergy: 10x reservoir reduction raises cure (kf=13)",
-          100 * (c_small - c_full), 10, 100, f"(1x {100*c_full:.0f}% vs 10x {100*c_small:.0f}%)")
+          100 * (c_small - c_full), 10, 100,
+          f"(1x {100*c_full:.0f}% vs 10x {100*c_small:.0f}%; NB direction only, not super-additivity)")
 
 
 def main():

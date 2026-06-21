@@ -21,6 +21,16 @@ with **multi-agent adversarial audits** of every claim.
 > Kaplan-Meier curve, and the TIP still moves post-treatment control by ~1 point). Methods are
 > consolidated in [METHODS.md](analysis/METHODS.md). The work is a calibrated research log —
 > treat it as hypothesis-generation and methods, audited for honesty — nothing more.
+>
+> **Re-audit caveat ([AUDIT2.md](analysis/AUDIT2.md), 2026-06-21):** the verdict is more precisely
+> *"neutral-to-slightly-harmful, **conditional** on two structural choices"* than "orthogonal." It
+> hinges on (1) the TIP and the reservoir being modeled as **non-interacting compartments**
+> (`L_lat`→`Iw`, the TIP's `L_latd`→`Id`), so a reactivating provirus never transits a
+> TIP-accessible co-infected state — yet a TIP is *designed* to mobilize on WT co-infection; and
+> (2) a **maintained antigen floor** (`Ldef`) that keeps CD8 primed under suppression (verified
+> load-bearing: control is 0% if the floor is ~10× smaller). Both make the TIP and the
+> cure-relevant reservoir non-interacting **by construction**; a coupled-TIP / dynamic-exhaustion
+> successor is needed before "neutral" generalizes beyond this one model family.
 
 ---
 
@@ -131,7 +141,8 @@ NARRATIVE.md                     the same thread as a readable story
    + a reservoir-clock distribution closes the whole rebound **Kaplan-Meier curve** at once
    (median 20.8 d, wk12 78%, **PTC 5%** — matching A5345/ACTG/CHAMP), resolving the P5 tension.
    On this clinically-fit cohort the TIP moves post-treatment control by **−1 point (5%→4%, KM
-   curves coincide)** — the **final, patient-level confirmation** that a TIP is orthogonal to the
+   curves coincide)** — the **patient-level confirmation** (conditional on the structural caveats
+   in [AUDIT2.md](analysis/AUDIT2.md)) that a TIP is neutral-to-the-cure / orthogonal to the
    immune-control cure.
 8. **The one genuinely emergent (non-tautological) result**: P1.1's **early-TIP immune-
    blunting** — a dynamically-driven failure mode, not pinned by the single-pool construction.

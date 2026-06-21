@@ -27,11 +27,14 @@ log10(WT setpoint with TIP), measured at each immune level kap. If immunity
 "drastically shrinks" efficacy, the benefit collapses as kap rises unless psi is
 large -> a design spec psi_required(kap).
 """
+import os
 import numpy as np
 from scipy.integrate import solve_ivp
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+
+HERE = os.path.dirname(os.path.abspath(__file__))   # write next to this file (AUDIT2 #14: no abs path)
 
 # ---- parameters (standard Perelson-class within-host HIV) ----
 P = dict(lam=1e4, dT=0.01, d=1.0, c=23.0, p=2000.0,
@@ -118,7 +121,7 @@ def main():
         psi_req.append(PSI[ok[0]] if len(ok) else np.nan)
     psi_req = np.array(psi_req)
 
-    np.savez("/home/seth/dev/hiv-aids-research/analysis/tip_sweep.npz",
+    np.savez(os.path.join(HERE, "tip_sweep.npz"),
              KAP=KAP, PSI=PSI, logdrop=logdrop, persist=persist, psi_req=psi_req)
 
     # ---- figure 1: phase diagram ----
@@ -133,7 +136,7 @@ def main():
     fig.colorbar(im, ax=ax, label="marginal WT log10 reduction by TIP")
     ax.legend(loc="upper right", framealpha=0.9)
     fig.tight_layout()
-    fig.savefig("/home/seth/dev/hiv-aids-research/analysis/phase_diagram.png", dpi=130)
+    fig.savefig(os.path.join(HERE, "phase_diagram.png"), dpi=130)
 
     # ---- figure 2: representative timecourses ----
     fig2, ax2 = plt.subplots(figsize=(7.5, 4.8))
@@ -146,7 +149,7 @@ def main():
     ax2.set_xlabel("days after TIP dose"); ax2.set_ylabel("WT viral load Vw (/mL)")
     ax2.set_title("WT load after TIP (psi=12); dotted = pre-TIP setpoint at each immune level")
     ax2.legend(fontsize=8); fig2.tight_layout()
-    fig2.savefig("/home/seth/dev/hiv-aids-research/analysis/timecourse.png", dpi=130)
+    fig2.savefig(os.path.join(HERE, "timecourse.png"), dpi=130)
 
     # ---- printed summary ----
     print("\n--- phase summary ---")

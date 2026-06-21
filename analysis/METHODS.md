@@ -171,11 +171,14 @@ re-derive the TIP verdict at the anchored operating point.
 - **Targets (clinical, sourced in [P5_findings.md](P5_findings.md)):** (i) untreated/placebo ATI
   time-to-rebound (median and, where available, Kaplan-Meier fractions); (ii) bNAb-arm
   delayed-rebound timing (RIO-class); (iii) the spontaneous post-treatment-control fraction.
-- **What is fit:** the latent **reactivation rate `A_react`** sets the rebound clock → fit to the
-  untreated/placebo median. The **CD8 strength `kf`** sets the rebound delay / control fraction
+- **What is fit (corrected per AUDIT2 #5):** P5 *derives* that the rebound clock is set by the
+  **latency fraction `f_lat`** (the reactivation FLUX `= f_lat × chronic-flux`; the per-cell
+  reactivation rate `A_react` cancels because the reservoir size compensates) — so **`f_lat`**,
+  not `A_react`, is fit to the untreated/placebo median, which sidesteps the Hill-vs-Davenport
+  reactivation-rate dispute. The **CD8 strength `kf`** sets the rebound delay / control fraction
   → fit to the bNAb arm and the PTC fraction. Everything else stays at the §4 values.
 - **Objective:** minimize squared error between model median time-to-rebound (and KM fractions)
-  and the clinical targets, over a grid/1-D search in (`A_react`, `kf`); rebound time = first
+  and the clinical targets, over a grid/1-D search in (`f_lat`, `kf`); rebound time = first
   crossing of a detection-analog `Vw` threshold, measured exactly as in P4c.
 - **Identifiability caveats (documented, not hidden):** rebound timing constrains the *product*
   of reservoir size and reactivation rate more than each alone; the detection threshold choice
