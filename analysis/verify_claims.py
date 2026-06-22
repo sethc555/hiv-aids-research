@@ -153,8 +153,18 @@ def verify_p11():
           f"(decoupled {100*c0:.0f}% -> coupled {100*c1:.0f}%; flips the 'neutral' verdict)")
 
 
+def verify_p12():
+    # AUDIT2 last open item: under wear-down-able immunity, coupled TIP still helps (no backfire).
+    print("P12 — coupled TIP helps under waning immunity, no backfire (production):")
+    from tip_model_p12_exhaustible import simulate_exh
+    c0 = simulate_exh(150, 0.0, 0.5, e_boost=0.5, t_ati=700.0, seed=3)[0]   # no TIP
+    c1 = simulate_exh(150, 1.0, 0.5, e_boost=0.5, t_ati=700.0, seed=3)[0]   # coupled TIP
+    check("P12 coupled TIP does not backfire (dControl >= -5pts)", 100 * (c1 - c0), -5, 100,
+          f"(noTIP {100*c0:.0f}% -> coupled {100*c1:.0f}%; helps under exhaustible immunity)")
+
+
 def main():
-    for fn in (verify_p1, verify_p3, verify_p4_p6, verify_p8, verify_p11):
+    for fn in (verify_p1, verify_p3, verify_p4_p6, verify_p8, verify_p11, verify_p12):
         fn(); print()
     npass = sum(1 for c in CHECKS if c[0]); ntot = len(CHECKS)
     print(f"==== claim-chain verification: {npass}/{ntot} checks PASS ====")

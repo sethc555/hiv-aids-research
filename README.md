@@ -29,11 +29,15 @@ with **multi-agent adversarial audits** of every claim.
 > P11 added one knob — χ = the fraction of reservoir reactivations that carry the TIP — and the
 > answer **flips**: as χ goes 0→1, post-treatment control rises monotonically (~22%→58% at the
 > marginal immune level), **CD8 stays primed**, i.e. a coupled TIP **HELPS** as an adjunct.
-> Caveats: it needs high coupling (χ≈0.5 is weak), it **assists but cannot replace** immunity
-> (0% control if the immune response isn't maintained), and the potential *harm* channel (TIP
-> starving an exhaustible immune memory — the P1 antagonism) is still untested (needs a dynamic
-> immunity successor). **Bottom line: a TIP is not orthogonal to the cure; its value depends
-> entirely on how well it couples to the reactivating reservoir.**
+> The feared *harm* channel — a coupled TIP starving an exhaustible immune memory (the P1
+> antagonism) — was then tested directly ([P12](analysis/P12_findings.md)): with a wear-down-able
+> dynamic immune memory (no floor), the coupled TIP **still helps and never backfired** (helps in
+> 7/9 regimes, mild/neutral only at extreme evasion). So "coupled TIP helps" is robust across two
+> structurally different immune models. Caveats: it needs substantial coupling (χ≈0.5 is weak), it
+> **assists but cannot replace** immunity (0% control if immunity isn't maintained), and a
+> degradation-type exhaustion / visibility below 0.2 stays untested. **Bottom line: a TIP is not
+> orthogonal to the cure; coupled to the reactivating reservoir it is a useful adjunct — its value
+> depends on how well it couples and on a maintained immune response.**
 
 ---
 
@@ -74,6 +78,7 @@ analysis/          all working files (flat, runnable in place)
   tip_model_p6_heterogeneous.py  P6   — patient population (kf+reservoir distribution); KM-curve fit
   tip_model_p8_boosters.py       P8   — booster vaccines: titration rule + reservoir×immunity synergy
   tip_model_p11_coupled.py       P11  — couple TIP to the rebound (audit follow-up): verdict FLIPS to "helps"
+  tip_model_p12_exhaustible.py   P12  — coupled TIP under wear-down-able immunity: still helps, no backfire
   METHODS.md                     consolidated methods (equations, params, numerics, audit)
   P1_findings.md … P6_findings.md, P8_boosters.md   per-phase write-ups
   AUDIT.md                       the self-audit + two multi-agent audit overlays

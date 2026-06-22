@@ -133,6 +133,7 @@ but is partly convergence on shared priors.
       χ = fraction of reactivations carrying the TIP, control rises monotonically 22%→58% (χ:0→1)
       at the marginal immune level: a coupled TIP **helps**. The "neutral" headline was a decoupling
       artifact, exactly as finding #2 predicted. README verdict revised.
-- [ ] **Dynamic-exhaustion immunity** still unbuilt — P11 used QSS+floor immunity (CD8 can't be
-      starved), so it shows the HELP side only; whether strong coupling reopens the HARM side
-      (antagonism via exhaustible memory) is the remaining open test (#3, blind-spot).
+- [x] **Dynamic-exhaustion immunity built ([P12](P12_findings.md)) — no backfire found.** With a
+      wear-down-able memory (no floor), the coupled TIP still HELPS (7/9 regimes), mild/neutral only
+      at extreme evasion, harms in none — so "coupled TIP helps" is robust across two different
+      immune models. (Open residual: a degradation-type exhaustion or visibility <0.2, untested.)
