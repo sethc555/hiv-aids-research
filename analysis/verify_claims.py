@@ -185,9 +185,19 @@ def verify_deboer():
           f"(kap0 {b0:.2f} -> kap0.8 {max(b8,0):.2f} log)")
 
 
+def verify_p14():
+    # P14 phase: at marginal immunity the TIP effect grows with coupling; chi=0 = de Boer (inert).
+    print("P14 — coupling phase: TIP helps at marginal immunity, inert at chi=0 (de Boer limit):")
+    from tip_model_p11_coupled import simulate_coupled
+    c0 = simulate_coupled(150, 12.0, chi=0.0, t_ati=500.0, seed=120)[0]   # de Boer limit
+    c1 = simulate_coupled(150, 12.0, chi=1.0, t_ati=500.0, seed=120)[0]   # fully coupled
+    check("P14 coupling helps at marginal immunity (kf=12, chi 0->1)", 100 * (c1 - c0), 8, 100,
+          f"(de Boer-limit {100*c0:.0f}% -> coupled {100*c1:.0f}%)")
+
+
 def main():
     for fn in (verify_p1, verify_p3, verify_p4_p6, verify_p8, verify_p11, verify_p12, verify_p13,
-               verify_deboer):
+               verify_deboer, verify_p14):
         fn(); print()
     npass = sum(1 for c in CHECKS if c[0]); ntot = len(CHECKS)
     print(f"==== claim-chain verification: {npass}/{ntot} checks PASS ====")
