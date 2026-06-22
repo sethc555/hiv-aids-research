@@ -103,9 +103,7 @@ analysis/          all working files (flat, runnable in place)
   P1_findings.md … P6_findings.md, P8_boosters.md   per-phase write-ups
   AUDIT.md                       the self-audit + two multi-agent audit overlays
   *.png, *.npz, raw_cache.json   figures, sweep outputs, cached S2 responses
-conversation/
-  session-transcript.jsonl       the full build-session thread (raw)
-NARRATIVE.md                     the same thread as a readable story
+NARRATIVE.md                     a readable narrative of the build session
 ```
 
 ## Key results (audit-calibrated)
@@ -229,8 +227,7 @@ without re-querying Semantic Scholar.
 
 ## Provenance & caveats
 
-Built in a single interactive session (2026-06-19/20); the full thread is in
-`conversation/`. Parameters are standard-but-illustrative (Perelson-class within-host HIV);
+Built in a single interactive session (2026-06-19/20). Parameters are standard-but-illustrative (Perelson-class within-host HIV);
 no calibration, no clinical validation. The work is **defensive/basic research** on a
 published cure concept — read the audit before citing any number.
 

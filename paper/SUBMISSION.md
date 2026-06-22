@@ -8,7 +8,7 @@ yours. Estimated total time: Zenodo ~15 min, bioRxiv ~30–45 min. All free. **D
 - [x] **ORCID registered** — `0009-0000-5520-915X` (Seth Cope). Already written into `CITATION.cff`,
       `.zenodo.json`, `ABSTRACT.md`, and `paper/MANUSCRIPT.md`.
 - [x] **Real name in all metadata** (`LICENSE`, `CITATION.cff`, `.zenodo.json`, `paper/MANUSCRIPT.md`,
-      `ABSTRACT.md`) — done. Affiliation: "Independent researcher". **Do not list a Meharry lab
+      `ABSTRACT.md`) — done. Affiliation: "Independent researcher". **Do not list an institutional
       affiliation you aren't part of.**
 - [x] **bioRxiv account created.** (Registered without the ORCID link — fine; add the ORCID later in
       bioRxiv account settings so it attaches to the preprint.)

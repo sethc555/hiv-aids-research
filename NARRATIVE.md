@@ -1,13 +1,11 @@
 # The thread, as a story
 
-_A readable narrative of the session that produced this repo (2026-06-19/20). The raw
-transcript is in `conversation/session-transcript.jsonl`._
+_A readable narrative of the session that produced this repo (2026-06-19/20)._
 
 ## 1. A wrong turn that pointed the right way
 
-The session opened on HIV/AIDS and its cure, with a passing mention of a Semantic Scholar
-key "in the soil microbiome project." The first instinct — could a **federated-database /
-drug-repurposing engine** (the `dbvision`/`biodbvision` family) accelerate a cure? — was
+The session opened on HIV/AIDS and its cure. An early instinct — could a **federated-database /
+drug-repurposing engine** accelerate a cure? — was
 examined and rejected: the cure-relevant data (latent-reservoir biology, immune control)
 doesn't live in clean federatable databases, and repurposing-via-shared-targets is a
 crowded, low-leverage angle for HIV specifically.
