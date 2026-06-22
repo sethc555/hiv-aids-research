@@ -1,6 +1,7 @@
 # hiv-aids-research
 
-> 📄 **Read the manuscript:** [**rendered web version**](https://sethc555.github.io/hiv-aids-research/) · [PDF](docs/manuscript.pdf) · [Zenodo DOI](https://doi.org/10.5281/zenodo.20799761)
+> 📄 **Read the manuscript:** [**rendered web version**](https://sethc555.github.io/hiv-aids-research/) · [PDF](docs/manuscript.pdf)
+> · **preprint DOI** [10.5281/zenodo.20801700](https://doi.org/10.5281/zenodo.20801700) · code archive DOI [10.5281/zenodo.20799761](https://doi.org/10.5281/zenodo.20799761)
 >
 > **Final result (post-audit):** a therapeutic interfering particle (TIP) *coupled* to latent-reservoir
 > reactivation is predicted to **assist** immune-mediated HIV-1 post-treatment control — it **extends, does

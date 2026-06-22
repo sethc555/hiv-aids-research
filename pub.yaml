@@ -1,0 +1,24 @@
+title: "A reservoir-coupled therapeutic interfering particle can assist immune-mediated HIV-1 post-treatment control: a within-host modeling study"
+slug: "hiv-aids-research"
+abstract: |
+  A within-host modeling study of therapeutic interfering particles (TIPs) and immune-mediated HIV-1
+  post-treatment control. Existing models (Dodd & de Boer 2025) find immunity reduces a TIP's effective
+  range on active infection; we add a latent replication-competent reservoir and an ART->ATI schedule and
+  introduce one coupling parameter, chi. A non-coupled TIP is neutral (recovering the de Boer limit); a
+  TIP coupled to reservoir reactivation raises durable control monotonically in chi, helps most for
+  marginal controllers, and never backfires - explained by a derived effective reproduction number
+  R_eff = R0 d / (d + kappa). Illustrative modeling hypothesis, not validated clinical findings.
+manuscript: "paper/MANUSCRIPT.md"
+figures:
+  og_image: "analysis/p14_coupling_phase.png"
+keywords:
+  - HIV-1
+  - therapeutic interfering particle
+  - latent reservoir
+  - post-treatment control
+  - within-host modeling
+  - analytical treatment interruption
+  - viral dynamics
+doi: "10.5281/zenodo.20801700"
+software_doi: "10.5281/zenodo.20799761"
+date: "2026-06-22"
