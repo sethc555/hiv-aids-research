@@ -3,3 +3,4 @@ __pycache__/
 .env
 *.egg-info/
 .ipynb_checkpoints/
+paper/outreach_drafts.local.md
