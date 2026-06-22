@@ -13,20 +13,18 @@ yours. Estimated total time: Zenodo ~15 min, bioRxiv ~30–45 min. All free. **D
 - [x] **bioRxiv account created.** (Registered without the ORCID link — fine; add the ORCID later in
       bioRxiv account settings so it attaches to the preprint.)
 
-## 1. Zenodo — get a citable DOI for the code (do this BEFORE bioRxiv, ~15 min)
-- [ ] Go to https://zenodo.org → **Log in with GitHub** (top right) → authorize.
-- [ ] Menu → **GitHub** → find `sethc555/hiv-aids-research` → flip the toggle **ON**.
-- [ ] Back on GitHub, make a release: repo → **Releases** → **Draft a new release** → tag `v1.0.0`,
-      title it, publish. (`.zenodo.json` in the repo auto-fills the metadata.)
-- [ ] Zenodo auto-archives the release and issues a **DOI** within a minute or two. Copy it.
-- [ ] Paste that DOI into `paper/MANUSCRIPT.md` (the "DOI: TODO" in Data availability) and re-release,
-      or just cite it in the bioRxiv submission.
+## 1. Zenodo — get a citable DOI for the code (DONE)
+- [x] Repo is **public**; Zenodo↔GitHub toggle ON; release **v1.0.0** published.
+- [x] **DOI minted: `10.5281/zenodo.20799761`** (https://doi.org/10.5281/zenodo.20799761) — written
+      into `paper/MANUSCRIPT.md` (Data availability), `CITATION.cff`, and `ABSTRACT.md`.
 
-## 2. Manuscript PDF (5 min)
-- [ ] Convert the draft to PDF: `pandoc paper/MANUSCRIPT.md -o paper/manuscript.pdf`
-      (install pandoc + a LaTeX engine, or paste the markdown into Google Docs and export PDF).
-- [ ] Make sure the two figures are embedded or supplied separately:
-      `analysis/p14_coupling_phase.png` (Fig 1) and a plot of `analysis/p16_analytic.npz` (Fig 2).
+## 2. Manuscript PDF (DONE — no pandoc needed)
+- [x] `paper/manuscript.html` is a self-contained, figure-embedded render (Figs 1 & 2 + the ATI supp
+      are base64-embedded). **To make the PDF:** open `paper/manuscript.html` in Firefox →
+      **File → Print → Save as PDF** (A4, default margins) → save as `paper/manuscript.pdf`.
+      (Rebuild the HTML anytime with `/tmp/mdvenv/bin/python /tmp/build_manuscript_html.py`.)
+- [x] Both figures (`analysis/p14_coupling_phase.png` Fig 1, `analysis/p16_analytic.png` Fig 2) are
+      embedded in the HTML/PDF; you can also upload them to bioRxiv as separate files if it asks.
 - [ ] **Re-read the whole thing in your own voice.** Fix anything that doesn't sound like you. Keep
       every caveat — the honesty is the credibility.
 

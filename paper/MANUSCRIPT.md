@@ -147,7 +147,8 @@ author's own earlier overclaims and is the reason the framing is "conditional/as
 ## Data and code availability
 
 All code, figures, the literature corpus, the verification harness, and the audit trail are openly
-available: https://github.com/sethc555/hiv-aids-research (archived at Zenodo, DOI: _TODO_). Running
+available: https://github.com/sethc555/hiv-aids-research (archived at Zenodo, DOI:
+[10.5281/zenodo.20799761](https://doi.org/10.5281/zenodo.20799761)). Running
 `cd analysis && python3 verify_claims.py` re-derives every headline number (22/22), including a
 reproduction of Dodd & de Boer.
 

@@ -19,6 +19,7 @@ authors:
     affiliation: "Independent researcher"
 repository-code: "https://github.com/sethc555/hiv-aids-research"
 url: "https://github.com/sethc555/hiv-aids-research"
+doi: "10.5281/zenodo.20799761"
 license: MIT
 keywords:
   - HIV-1
