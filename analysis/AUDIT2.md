@@ -137,3 +137,6 @@ but is partly convergence on shared priors.
       wear-down-able memory (no floor), the coupled TIP still HELPS (7/9 regimes), mild/neutral only
       at extreme evasion, harms in none — so "coupled TIP helps" is robust across two different
       immune models. (Open residual: a degradation-type exhaustion or visibility <0.2, untested.)
+- [x] **Residual closed ([P13](P13_findings.md)):** active burden-driven exhaustion + stealthy TIP
+      (ν down to 0.05) — STILL no backfire; the TIP helps *most* there (+~50 pts) by sparing CD8
+      from exhaustion. "Coupled TIP helps, never backfires" now holds across THREE immune models.

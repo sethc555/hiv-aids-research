@@ -163,8 +163,18 @@ def verify_p12():
           f"(noTIP {100*c0:.0f}% -> coupled {100*c1:.0f}%; helps under exhaustible immunity)")
 
 
+def verify_p13():
+    # harshest test: active exhaustion + stealthy TIP -> still no backfire (TIP helps).
+    print("P13 — coupled TIP no-backfire under ACTIVE exhaustion + stealth (production):")
+    from tip_model_p13_exhaustion_damage import simulate_dmg
+    c0 = simulate_dmg(150, 0.0, 0.1, exhaust=0.15, seed=5)[0]   # no TIP, exhaustible immunity, stealthy
+    c1 = simulate_dmg(150, 1.0, 0.1, exhaust=0.15, seed=5)[0]   # coupled stealthy TIP
+    check("P13 no backfire under active exhaustion (dControl >= -5pts)", 100 * (c1 - c0), -5, 100,
+          f"(noTIP {100*c0:.0f}% -> coupled {100*c1:.0f}%; TIP protects vs exhaustion)")
+
+
 def main():
-    for fn in (verify_p1, verify_p3, verify_p4_p6, verify_p8, verify_p11, verify_p12):
+    for fn in (verify_p1, verify_p3, verify_p4_p6, verify_p8, verify_p11, verify_p12, verify_p13):
         fn(); print()
     npass = sum(1 for c in CHECKS if c[0]); ntot = len(CHECKS)
     print(f"==== claim-chain verification: {npass}/{ntot} checks PASS ====")

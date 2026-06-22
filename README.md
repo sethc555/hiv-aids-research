@@ -33,11 +33,15 @@ with **multi-agent adversarial audits** of every claim.
 > antagonism) — was then tested directly ([P12](analysis/P12_findings.md)): with a wear-down-able
 > dynamic immune memory (no floor), the coupled TIP **still helps and never backfired** (helps in
 > 7/9 regimes, mild/neutral only at extreme evasion). So "coupled TIP helps" is robust across two
-> structurally different immune models. Caveats: it needs substantial coupling (χ≈0.5 is weak), it
-> **assists but cannot replace** immunity (0% control if immunity isn't maintained), and a
-> degradation-type exhaustion / visibility below 0.2 stays untested. **Bottom line: a TIP is not
-> orthogonal to the cure; coupled to the reactivating reservoir it is a useful adjunct — its value
-> depends on how well it couples and on a maintained immune response.**
+> structurally different immune models. The last corner — **active immune exhaustion** (burden
+> *degrades* CD8) plus a **stealthy** TIP — was then tested too ([P13](analysis/P13_findings.md)):
+> still **no backfire anywhere**; the TIP in fact helps *most* there (+~50 pts), because by holding
+> the viral burden down it **protects the immune response from exhaustion**. So "coupled TIP helps,
+> never backfires" now holds across **three** structurally different immune models. Caveats: it
+> needs substantial coupling (χ≈0.5 is weak) and **assists but cannot replace** immunity (0%
+> control if immunity isn't maintained). **Bottom line: a TIP is not orthogonal to the cure;
+> coupled to the reactivating reservoir it is a useful adjunct — most valuable, not least, when the
+> immune system is fragile.**
 
 ---
 
@@ -79,6 +83,7 @@ analysis/          all working files (flat, runnable in place)
   tip_model_p8_boosters.py       P8   — booster vaccines: titration rule + reservoir×immunity synergy
   tip_model_p11_coupled.py       P11  — couple TIP to the rebound (audit follow-up): verdict FLIPS to "helps"
   tip_model_p12_exhaustible.py   P12  — coupled TIP under wear-down-able immunity: still helps, no backfire
+  tip_model_p13_exhaustion_damage.py  P13 — harshest (active exhaustion + stealth): no backfire, TIP helps more
   METHODS.md                     consolidated methods (equations, params, numerics, audit)
   P1_findings.md … P6_findings.md, P8_boosters.md   per-phase write-ups
   AUDIT.md                       the self-audit + two multi-agent audit overlays
