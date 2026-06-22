@@ -84,7 +84,9 @@ analysis/          all working files (flat, runnable in place)
   tip_model_p11_coupled.py       P11  — couple TIP to the rebound (audit follow-up): verdict FLIPS to "helps"
   tip_model_p12_exhaustible.py   P12  — coupled TIP under wear-down-able immunity: still helps, no backfire
   tip_model_p13_exhaustion_damage.py  P13 — harshest (active exhaustion + stealth): no backfire, TIP helps more
+  tip_model_deboer_bridge.py     recreate Dodd & de Boer 2025 + bridge: why ours extends (not flips) theirs
   METHODS.md                     consolidated methods (equations, params, numerics, audit)
+  NOVELTY.md                     prior-art / novelty assessment + the de Boer reconciliation
   P1_findings.md … P6_findings.md, P8_boosters.md   per-phase write-ups
   AUDIT.md                       the self-audit + two multi-agent audit overlays
   *.png, *.npz, raw_cache.json   figures, sweep outputs, cached S2 responses

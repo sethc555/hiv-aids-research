@@ -173,8 +173,21 @@ def verify_p13():
           f"(noTIP {100*c0:.0f}% -> coupled {100*c1:.0f}%; TIP protects vs exhaustion)")
 
 
+def verify_deboer():
+    # We REPRODUCE Dodd & de Boer (active infection): immunity collapses the TIP's suppression.
+    print("de Boer recreation: immunity collapses TIP benefit on active VL (we reproduce them):")
+    from tip_model import wt_setpoint, tip_arm
+    def benefit(kap):
+        sp = wt_setpoint(kap); end, _ = tip_arm(sp, kap, 12.0, tmax=700)
+        return np.log10(max(sp[4], 1e-9)) - np.log10(max(end[4], 1e-9))
+    b0, b8 = benefit(0.0), benefit(0.8)
+    check("de Boer: TIP active-VL benefit collapses under immunity (b0-b0.8 > 1)", b0 - b8, 1.0, 6.0,
+          f"(kap0 {b0:.2f} -> kap0.8 {max(b8,0):.2f} log)")
+
+
 def main():
-    for fn in (verify_p1, verify_p3, verify_p4_p6, verify_p8, verify_p11, verify_p12, verify_p13):
+    for fn in (verify_p1, verify_p3, verify_p4_p6, verify_p8, verify_p11, verify_p12, verify_p13,
+               verify_deboer):
         fn(); print()
     npass = sum(1 for c in CHECKS if c[0]); ntot = len(CHECKS)
     print(f"==== claim-chain verification: {npass}/{ntot} checks PASS ====")
