@@ -86,6 +86,7 @@ analysis/          all working files (flat, runnable in place)
   tip_model_p13_exhaustion_damage.py  P13 — harshest (active exhaustion + stealth): no backfire, TIP helps more
   tip_model_p14_coupling_phase.py P14  — coupling phase diagram + reduction to de Boer + falsifiable prediction
   tip_model_p15_sensitivity.py   P15  — global sensitivity: benefit robust across joint params, 0% backfire
+  tip_model_p16_analytic.py      P16  — semi-analytical criterion: R_eff=R0*d/(d+k); coupling shifts threshold
   tip_model_deboer_bridge.py     recreate Dodd & de Boer 2025 + bridge: why ours extends (not flips) theirs
   METHODS.md                     consolidated methods (equations, params, numerics, audit)
   NOVELTY.md                     prior-art / novelty assessment + the de Boer reconciliation

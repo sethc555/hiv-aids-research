@@ -209,9 +209,22 @@ def verify_p15():
           f"(worst-case TIP effect {worst:+.0f} pts)")
 
 
+def verify_p16():
+    # semi-analytical: R_eff=R0*d/(d+kappa); kappa_crit=(R0-1)d=7.70 exactly; coupled TIP helps in
+    # the marginal band and never backfires (static-kappa model).
+    print("P16 — analytic threshold R_eff=R0*d/(d+kappa); coupled TIP helps marginal, no backfire:")
+    from tip_model import P, T0
+    from tip_model_p16_analytic import simulate_static, KAPPA_CRIT
+    check("P16 kappa_crit = (R0-1)d = 7.70", KAPPA_CRIT, 7.6, 7.8, "[exact]")
+    c0 = simulate_static(150, 5.0, 0.0, seed=5)   # marginal immunity, no TIP
+    c1 = simulate_static(150, 5.0, 1.0, seed=5)   # coupled TIP
+    check("P16 coupled TIP helps in the marginal band (kappa=5)", 100 * (c1 - c0), 8, 100,
+          f"(noTIP {100*c0:.0f}% -> coupled {100*c1:.0f}%)")
+
+
 def main():
     for fn in (verify_p1, verify_p3, verify_p4_p6, verify_p8, verify_p11, verify_p12, verify_p13,
-               verify_deboer, verify_p14, verify_p15):
+               verify_deboer, verify_p14, verify_p15, verify_p16):
         fn(); print()
     npass = sum(1 for c in CHECKS if c[0]); ntot = len(CHECKS)
     print(f"==== claim-chain verification: {npass}/{ntot} checks PASS ====")
