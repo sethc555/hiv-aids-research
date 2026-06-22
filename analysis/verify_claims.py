@@ -195,9 +195,23 @@ def verify_p14():
           f"(de Boer-limit {100*c0:.0f}% -> coupled {100*c1:.0f}%)")
 
 
+def verify_p15():
+    # global-sensitivity spot check: at two diverse parameter points, coupled TIP does not backfire.
+    print("P15 — coupled TIP no-backfire at diverse parameter points (sensitivity spot check):")
+    import tip_model_p11_coupled as M
+    from tip_model_p11_coupled import simulate_coupled
+    worst = 100.0
+    for (kf, nu, psi, rdef) in [(11.0, 0.3, 80.0, 4000.0), (12.0, 0.8, 20.0, 8000.0)]:
+        c0 = simulate_coupled(120, kf, chi=0.0, nu=nu, psi=psi, rdef=rdef, t_ati=400.0, seed=7)[0]
+        c1 = simulate_coupled(120, kf, chi=1.0, nu=nu, psi=psi, rdef=rdef, t_ati=400.0, seed=7)[0]
+        worst = min(worst, 100 * (c1 - c0))
+    check("P15 no backfire across diverse params (min dControl >= -6pts)", worst, -6, 100,
+          f"(worst-case TIP effect {worst:+.0f} pts)")
+
+
 def main():
     for fn in (verify_p1, verify_p3, verify_p4_p6, verify_p8, verify_p11, verify_p12, verify_p13,
-               verify_deboer, verify_p14):
+               verify_deboer, verify_p14, verify_p15):
         fn(); print()
     npass = sum(1 for c in CHECKS if c[0]); ntot = len(CHECKS)
     print(f"==== claim-chain verification: {npass}/{ntot} checks PASS ====")
