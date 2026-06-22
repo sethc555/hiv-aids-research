@@ -1,5 +1,14 @@
 # hiv-aids-research
 
+> 📄 **Read the manuscript:** [**rendered web version**](https://sethc555.github.io/hiv-aids-research/) · [PDF](docs/manuscript.pdf) · [Zenodo DOI](https://doi.org/10.5281/zenodo.20799761)
+>
+> **Final result (post-audit):** a therapeutic interfering particle (TIP) *coupled* to latent-reservoir
+> reactivation is predicted to **assist** immune-mediated HIV-1 post-treatment control — it **extends, does
+> not contradict,** Dodd & de Boer (2025) (a non-coupled TIP is neutral and recovers their limit).
+> *Illustrative modeling hypothesis — not validated findings, not a cure.* The P2–P6 narrative just below
+> is the **earlier, superseded "neutral" stage**; see [P11](analysis/P11_findings.md)–[P16](analysis/P16_findings.md)
+> and [paper/MANUSCRIPT.md](paper/MANUSCRIPT.md) for the final verdict.
+
 A research log on **HIV cure strategy**, combining (1) a citation-grounded literature
 corpus of the 2024–2026 cure frontier and (2) a within-host **mathematical-modeling**
 investigation of **therapeutic interfering particles (TIPs)** versus CD8 immune control —
