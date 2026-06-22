@@ -1,0 +1,64 @@
+# claimcheck manifest — declares this repo's headline claims and how to reproduce each.
+# Verify:  claimcheck verify claims.yaml   (-> writes attestation.json)
+# Each claim's `reproduce` command must exit 0 iff the claim holds (verify_claims.py does this).
+schema: claimcheck/v0.1
+
+artifact:
+  title: "A reservoir-coupled therapeutic interfering particle can assist immune-mediated HIV-1 post-treatment control: a within-host modeling study"
+  author: "Seth Cope"
+  orcid: "0009-0000-5520-915X"
+  doi: "10.5281/zenodo.20799761"
+  repo: "https://github.com/sethc555/hiv-aids-research"
+
+environment:
+  runner: "python3"
+  workdir: "analysis"          # reproduce commands run from here
+  setup: "pip install -r requirements.txt"
+  memory_cap_mb: 4096          # the verifier enforces this ulimit per claim (project safety rule)
+  timeout_s: 595
+
+claims:
+  - id: p1
+    statement: "Within-host core (deterministic): R0 = 8.70; TIP invasion threshold psi* ~ 7.5; a supra-threshold TIP suppresses WT by >1 log, and immunity collapses that suppression."
+    reproduce: "python3 verify_claims.py --check p1"
+    expect: { exit_code: 0 }
+  - id: p3
+    statement: "Stochastic resolution: stable TIP-WT coexistence = 0% (a continuum artifact); cure probability ~15%; CD8 retained in ~82% of cures."
+    reproduce: "python3 verify_claims.py --check p3"
+    expect: { exit_code: 0 }
+  - id: p4_p6
+    statement: "With a latent reservoir + ART/ATI, post-treatment control is sharp in immune strength; a latent/engineered TIP is ~neutral to control; the cohort reproduces ~5% spontaneous PTC and a 12-30 day rebound median."
+    reproduce: "python3 verify_claims.py --check p4_p6"
+    expect: { exit_code: 0 }
+  - id: p8
+    statement: "Booster trough rule (a higher maintained trough yields more control at fixed peak) and reservoir x immunity synergy (a 10x reservoir reduction raises cure probability)."
+    reproduce: "python3 verify_claims.py --check p8"
+    expect: { exit_code: 0 }
+  - id: p11
+    statement: "Coupling the TIP to reservoir reactivation FLIPS the verdict from neutral to helpful: durable control rises as coupling chi goes 0 -> 1 (kf=11)."
+    reproduce: "python3 verify_claims.py --check p11"
+    expect: { exit_code: 0 }
+  - id: p12
+    statement: "Under wear-down-able (exhaustible) immunity, the coupled TIP still helps and does not backfire."
+    reproduce: "python3 verify_claims.py --check p12"
+    expect: { exit_code: 0 }
+  - id: p13
+    statement: "Under active immune exhaustion plus a stealthy (low-visibility) TIP — the harshest test — there is still no backfire; the TIP helps most there."
+    reproduce: "python3 verify_claims.py --check p13"
+    expect: { exit_code: 0 }
+  - id: deboer
+    statement: "Reproduces Dodd & de Boer (2025): an immune response collapses the TIP's benefit on active viral load."
+    reproduce: "python3 verify_claims.py --check deboer"
+    expect: { exit_code: 0 }
+  - id: p14
+    statement: "Coupling phase diagram: the TIP effect grows with coupling chi and is inert at chi=0 (recovering the de Boer limit), with help concentrated at marginal immunity."
+    reproduce: "python3 verify_claims.py --check p14"
+    expect: { exit_code: 0 }
+  - id: p15
+    statement: "Global-sensitivity spot check: the coupled TIP does not backfire across diverse parameter points."
+    reproduce: "python3 verify_claims.py --check p15"
+    expect: { exit_code: 0 }
+  - id: p16
+    statement: "Semi-analytic criterion: kappa_crit = (R0-1)d = 7.70/day; R_eff = R0*d/(d+kappa); the coupled TIP helps in the marginal band and never backfires."
+    reproduce: "python3 verify_claims.py --check p16"
+    expect: { exit_code: 0 }

@@ -222,9 +222,37 @@ def verify_p16():
           f"(noTIP {100*c0:.0f}% -> coupled {100*c1:.0f}%)")
 
 
+# Registry maps a stable claim-group id -> its verifier (insertion order = report order).
+# Used by `--check <id>` and by the claimcheck manifest (claims.yaml). Adding a group here
+# automatically exposes it to both the CLI and any external verifier.
+REGISTRY = {
+    "p1": verify_p1, "p3": verify_p3, "p4_p6": verify_p4_p6, "p8": verify_p8,
+    "p11": verify_p11, "p12": verify_p12, "p13": verify_p13, "deboer": verify_deboer,
+    "p14": verify_p14, "p15": verify_p15, "p16": verify_p16,
+}
+
+
 def main():
-    for fn in (verify_p1, verify_p3, verify_p4_p6, verify_p8, verify_p11, verify_p12, verify_p13,
-               verify_deboer, verify_p14, verify_p15, verify_p16):
+    import argparse
+    ap = argparse.ArgumentParser(description="Verify the HIV TIP claim chain (P1->P16).")
+    ap.add_argument("--check", metavar="ID",
+                    help="run one claim group by id (default: all). 'all' also runs everything.")
+    ap.add_argument("--list", action="store_true", help="list claim-group ids and exit")
+    args = ap.parse_args()
+
+    if args.list:
+        for k in REGISTRY:
+            print(k)
+        return
+    if args.check and args.check != "all":
+        if args.check not in REGISTRY:
+            print(f"unknown check id '{args.check}'; choose from: {', '.join(REGISTRY)}")
+            sys.exit(2)
+        fns = [REGISTRY[args.check]]
+    else:
+        fns = list(REGISTRY.values())
+
+    for fn in fns:
         fn(); print()
     npass = sum(1 for c in CHECKS if c[0]); ntot = len(CHECKS)
     print(f"==== claim-chain verification: {npass}/{ntot} checks PASS ====")
