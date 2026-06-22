@@ -232,3 +232,15 @@ Built in a single interactive session (2026-06-19/20); the full thread is in
 `conversation/`. Parameters are standard-but-illustrative (Perelson-class within-host HIV);
 no calibration, no clinical validation. The work is **defensive/basic research** on a
 published cure concept — read the audit before citing any number.
+
+## License
+
+Dual-licensed, intentionally:
+- **Code** (the `analysis/` scripts, `verify_claims.py`, build tooling) — **MIT** (see [LICENSE](LICENSE)).
+- **Text, figures, and prose** (`paper/`, `docs/`, the manuscript, `ABSTRACT.md`, `*_findings.md`,
+  this README) — **CC BY 4.0** (https://creativecommons.org/licenses/by/4.0/).
+
+This is the standard split for a repository that is both software and a manuscript (MIT is a
+software license and is a poor fit for prose; CC BY is the right fit for the text). The Zenodo
+deposit (DOI `10.5281/zenodo.20799761`) is labeled MIT as the archive-level license; this section
+is the authoritative statement of the per-component licensing.
