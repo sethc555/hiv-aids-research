@@ -143,8 +143,18 @@ def verify_p8():
           f"(1x {100*c_full:.0f}% vs 10x {100*c_small:.0f}%; NB direction only, not super-additivity)")
 
 
+def verify_p11():
+    # AUDIT2 follow-up: coupling the TIP to the rebound FLIPS neutral -> helps (production model).
+    print("P11 — coupled TIP helps (via PRODUCTION simulate_coupled):")
+    from tip_model_p11_coupled import simulate_coupled
+    c0 = simulate_coupled(150, 11.0, chi=0.0, t_ati=400.0, seed=1)[0]   # decoupled
+    c1 = simulate_coupled(150, 11.0, chi=1.0, t_ati=400.0, seed=1)[0]   # fully coupled
+    check("P11 coupling raises control (chi 0->1, kf=11)", 100 * (c1 - c0), 10, 100,
+          f"(decoupled {100*c0:.0f}% -> coupled {100*c1:.0f}%; flips the 'neutral' verdict)")
+
+
 def main():
-    for fn in (verify_p1, verify_p3, verify_p4_p6, verify_p8):
+    for fn in (verify_p1, verify_p3, verify_p4_p6, verify_p8, verify_p11):
         fn(); print()
     npass = sum(1 for c in CHECKS if c[0]); ntot = len(CHECKS)
     print(f"==== claim-chain verification: {npass}/{ntot} checks PASS ====")

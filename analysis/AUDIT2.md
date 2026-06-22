@@ -129,5 +129,10 @@ but is partly convergence on shared priors.
 - [x] Add cross-disease citations (#4); soften "orthogonal"→"neutral (conditional)" + name the two
       structural assumptions in the README banner (#2,#3,#11); reword P8 "synergy" (#6)
 - [x] Fix `tip_model.py` hardcoded paths (#14)
-- [ ] Build the real successors: a **coupled-TIP** reservoir and a **dynamic-exhaustion** immunity
-      model — the only way to convert the verdict from "within one model family" to robust (#2,#3,blind-spot)
+- [x] **Coupled-TIP reservoir built ([P11](P11_findings.md)) — and it FLIPPED the verdict.** With
+      χ = fraction of reactivations carrying the TIP, control rises monotonically 22%→58% (χ:0→1)
+      at the marginal immune level: a coupled TIP **helps**. The "neutral" headline was a decoupling
+      artifact, exactly as finding #2 predicted. README verdict revised.
+- [ ] **Dynamic-exhaustion immunity** still unbuilt — P11 used QSS+floor immunity (CD8 can't be
+      starved), so it shows the HELP side only; whether strong coupling reopens the HARM side
+      (antagonism via exhaustible memory) is the remaining open test (#3, blind-spot).

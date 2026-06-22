@@ -22,15 +22,18 @@ with **multi-agent adversarial audits** of every claim.
 > consolidated in [METHODS.md](analysis/METHODS.md). The work is a calibrated research log —
 > treat it as hypothesis-generation and methods, audited for honesty — nothing more.
 >
-> **Re-audit caveat ([AUDIT2.md](analysis/AUDIT2.md), 2026-06-21):** the verdict is more precisely
-> *"neutral-to-slightly-harmful, **conditional** on two structural choices"* than "orthogonal." It
-> hinges on (1) the TIP and the reservoir being modeled as **non-interacting compartments**
-> (`L_lat`→`Iw`, the TIP's `L_latd`→`Id`), so a reactivating provirus never transits a
-> TIP-accessible co-infected state — yet a TIP is *designed* to mobilize on WT co-infection; and
-> (2) a **maintained antigen floor** (`Ldef`) that keeps CD8 primed under suppression (verified
-> load-bearing: control is 0% if the floor is ~10× smaller). Both make the TIP and the
-> cure-relevant reservoir non-interacting **by construction**; a coupled-TIP / dynamic-exhaustion
-> successor is needed before "neutral" generalizes beyond this one model family.
+> **VERDICT REVISED ([P11](analysis/P11_findings.md) + [AUDIT2.md](analysis/AUDIT2.md), 2026-06-21):**
+> the "neutral / orthogonal" headline was an **artifact of a decoupled model**. The re-audit found
+> the verdict hinged on the TIP and the reservoir being modeled as **non-interacting** (a
+> reactivating provirus never met the TIP — yet a TIP is *designed* to mobilize on WT co-infection).
+> P11 added one knob — χ = the fraction of reservoir reactivations that carry the TIP — and the
+> answer **flips**: as χ goes 0→1, post-treatment control rises monotonically (~22%→58% at the
+> marginal immune level), **CD8 stays primed**, i.e. a coupled TIP **HELPS** as an adjunct.
+> Caveats: it needs high coupling (χ≈0.5 is weak), it **assists but cannot replace** immunity
+> (0% control if the immune response isn't maintained), and the potential *harm* channel (TIP
+> starving an exhaustible immune memory — the P1 antagonism) is still untested (needs a dynamic
+> immunity successor). **Bottom line: a TIP is not orthogonal to the cure; its value depends
+> entirely on how well it couples to the reactivating reservoir.**
 
 ---
 
@@ -70,6 +73,7 @@ analysis/          all working files (flat, runnable in place)
   tip_model_p5_calibration.py    P5   — fit to clinical ATI data; TIP verdict survives anchoring
   tip_model_p6_heterogeneous.py  P6   — patient population (kf+reservoir distribution); KM-curve fit
   tip_model_p8_boosters.py       P8   — booster vaccines: titration rule + reservoir×immunity synergy
+  tip_model_p11_coupled.py       P11  — couple TIP to the rebound (audit follow-up): verdict FLIPS to "helps"
   METHODS.md                     consolidated methods (equations, params, numerics, audit)
   P1_findings.md … P6_findings.md, P8_boosters.md   per-phase write-ups
   AUDIT.md                       the self-audit + two multi-agent audit overlays
