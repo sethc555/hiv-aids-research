@@ -28,16 +28,14 @@ yours. Estimated total time: Zenodo ~15 min, bioRxiv ~30–45 min. All free. **D
 - [ ] **Re-read the whole thing in your own voice.** Fix anything that doesn't sound like you. Keep
       every caveat — the honesty is the credibility.
 
-## 3. bioRxiv — post the preprint (~30 min)
-- [ ] Go to https://www.biorxiv.org → **Submit** → create an account (personal email is OK; an
-      institutional email just speeds the automated check).
-- [ ] **Subject area:** *Systems Biology* (or *Microbiology*). NOT medRxiv — this is a modeling study.
-- [ ] **Authors/affiliation:** your name + ORCID; affiliation "Independent researcher" (or Ronin).
-- [ ] **License:** CC-BY-4.0 (standard, lets people cite/reuse) — or CC-BY-NC if you prefer.
-- [ ] Upload `manuscript.pdf` + figure files.
-- [ ] **Competing interests:** none. **Funding:** none.
-- [ ] **Disclose the AI assistance** in the comments/methods (the manuscript already does).
-- [ ] Submit. Screening (not peer review) takes ~24–48 h; then it's public with a DOI.
+## 3. bioRxiv — post the preprint (SUBMITTED 2026-06-22)
+- [x] Submitted: **MS ID `BIORXIV/2026/733776`**, in screening (~24–72 h). Filed as Biological
+      research / "Research article with data", subject **Systems Biology**, license **CC-BY**, sole
+      author Seth Cope (corresponding) + ORCID, no funding, no competing interests, AI disclosed.
+      (Abstract web field required ASCII — em-dash `—` and middle-dot `·` rejected; Greek χ/κ ok.)
+- [ ] **Wait for the "posted" email**, which gives the public preprint link + bioRxiv DOI.
+- [ ] To edit before it posts: author area → "Manuscripts Undergoing Screening" → "Request Return of
+      Manuscript". Do NOT resubmit (creates a duplicate).
 
 ## 4. After it's live
 - [ ] Put the bioRxiv link in the GitHub README.
