@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: >-
+  A reservoir-coupled therapeutic interfering particle can assist immune-mediated
+  HIV-1 post-treatment control: a within-host modeling study
+abstract: >-
+  A reproducible, self-audited within-host modeling study extending Dodd & de Boer (2025)
+  into the latent-reservoir / analytical-treatment-interruption (ATI) setting. A therapeutic
+  interfering particle (TIP) coupled to reservoir reactivation is predicted to assist (not
+  antagonize) immune-mediated post-treatment control; a non-coupled TIP recovers the de Boer
+  active-infection limit. The effect is robust across global parameter sampling and three
+  immune models, never backfires, and is explained by a derived effective reproduction number.
+  Illustrative modeling hypothesis, not validated experimental findings.
+type: software
+authors:
+  - given-names: Seth
+    family-names: "C."          # TODO: replace with your full legal name before submitting
+    # orcid: "https://orcid.org/0000-0000-0000-0000"   # TODO: register a free ORCID and add it
+    affiliation: "Independent researcher"
+repository-code: "https://github.com/sethc555/hiv-aids-research"
+url: "https://github.com/sethc555/hiv-aids-research"
+license: MIT
+keywords:
+  - HIV-1
+  - therapeutic interfering particle
+  - latent reservoir
+  - post-treatment control
+  - within-host modeling
+  - analytical treatment interruption
+  - viral dynamics
+date-released: "2026-06-22"
+version: "v1.0.0"
