@@ -55,8 +55,9 @@ prior-art / novelty assessment ([NOVELTY.md](analysis/NOVELTY.md)).
 
 ## How to cite
 
-> Seth C. (2026). *A reservoir-coupled therapeutic interfering particle can assist immune-mediated
+> Seth Cope (2026). *A reservoir-coupled therapeutic interfering particle can assist immune-mediated
 > HIV-1 post-treatment control: a within-host modeling study.* GitHub: sethc555/hiv-aids-research.
+> ORCID: 0009-0000-5520-915X.
 
 For a citable DOI, archive a release of the repository via [Zenodo](https://zenodo.org) (GitHub →
 Zenodo integration), or post as a preprint (see below).

@@ -5,12 +5,13 @@ click "submit"** — posting a preprint is a permanent public act under your nam
 yours. Estimated total time: Zenodo ~15 min, bioRxiv ~30–45 min. All free. **Do these in order.**
 
 ## 0. One-time prerequisites (10 min, do first)
-- [ ] **Register a free ORCID** at https://orcid.org — a researcher ID. Add it to `CITATION.cff` and
-      `paper/MANUSCRIPT.md` (replace the TODOs). Most preprint servers ask for it.
-- [ ] **Put your real name** in `LICENSE`, `CITATION.cff`, `.zenodo.json`, and `paper/MANUSCRIPT.md`
-      (they currently say "Seth C."). Decide the affiliation you'll use — "Independent researcher" is
-      fine and respected; if you want a citable institutional-style affiliation, the Ronin Institute
-      (~$100/yr) provides one. **Do not list a Meharry lab affiliation you aren't part of.**
+- [x] **ORCID registered** — `0009-0000-5520-915X` (Seth Cope). Already written into `CITATION.cff`,
+      `.zenodo.json`, `ABSTRACT.md`, and `paper/MANUSCRIPT.md`.
+- [x] **Real name in all metadata** (`LICENSE`, `CITATION.cff`, `.zenodo.json`, `paper/MANUSCRIPT.md`,
+      `ABSTRACT.md`) — done. Affiliation: "Independent researcher". **Do not list a Meharry lab
+      affiliation you aren't part of.**
+- [x] **bioRxiv account created.** (Registered without the ORCID link — fine; add the ORCID later in
+      bioRxiv account settings so it attaches to the preprint.)
 
 ## 1. Zenodo — get a citable DOI for the code (do this BEFORE bioRxiv, ~15 min)
 - [ ] Go to https://zenodo.org → **Log in with GitHub** (top right) → authorize.

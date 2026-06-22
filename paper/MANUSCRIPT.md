@@ -1,6 +1,6 @@
 # A reservoir-coupled therapeutic interfering particle can assist immune-mediated HIV-1 post-treatment control: a within-host modeling study
 
-**Author:** Seth C.¹  _(¹ Independent researcher.  TODO: full name + ORCID before submission)_
+**Author:** Seth Cope¹  _(¹ Independent researcher. ORCID: [0009-0000-5520-915X](https://orcid.org/0009-0000-5520-915X))_
 
 _Preprint draft — illustrative modeling study / hypothesis generation. Not validated experimental
 or clinical findings. Convert to PDF (e.g. `pandoc MANUSCRIPT.md -o manuscript.pdf`) for bioRxiv._
