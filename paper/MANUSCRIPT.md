@@ -138,8 +138,9 @@ author's own earlier overclaims and is the reason the framing is "conditional/as
 
 - **Fig. 1** — Coupling phase diagram: P(durable control) and the TIP effect vs (coupling χ, immune
   strength). `analysis/p14_coupling_phase.png`.
-- **Fig. 2** — Semi-analytical criterion: TIP effect vs immune killing κ, against R_eff = R₀d/(d+κ).
-  `analysis/p16_analytic.npz` (plot) / `analysis/P16_findings.md`.
+- **Fig. 2** — Semi-analytical criterion: coupling lowers the control threshold (left), and the TIP
+  effect is concentrated in the sub-threshold band where R_eff = R₀d/(d+κ) > 1 (right).
+  `analysis/p16_analytic.png`.
 - **Supp.** — ATI rebound / post-treatment-control calibration (`analysis/p4_ati.png`); global
   sensitivity (`analysis/p15_sensitivity.npz`).
 
