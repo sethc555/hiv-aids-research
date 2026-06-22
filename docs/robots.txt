@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sethc555.github.io/hiv-aids-research/sitemap.xml

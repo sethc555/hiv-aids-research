@@ -2,30 +2,63 @@
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cope 2026 — reservoir-coupled TIP & HIV-1 post-treatment control</title>
-<meta name="description" content="A within-host modeling study: a reservoir-coupled therapeutic interfering particle can assist immune-mediated HIV-1 post-treatment control.">
+<meta name="description" content="A within-host modeling study: a therapeutic interfering particle (TIP) coupled to latent-reservoir reactivation is predicted to assist immune-mediated HIV-1 post-treatment control — extending, not contradicting, Dodd &amp; de Boer (2025). Illustrative modeling hypothesis, not a cure.">
+<meta name="keywords" content="HIV-1, therapeutic interfering particle, latent reservoir, post-treatment control, within-host modeling, analytical treatment interruption, viral dynamics">
+<meta name="author" content="Seth Cope">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://sethc555.github.io/hiv-aids-research/">
+<link rel="alternate" type="application/pdf" href="https://sethc555.github.io/hiv-aids-research/manuscript.pdf">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A reservoir-coupled therapeutic interfering particle can assist immune-mediated HIV-1 post-treatment control: a within-host modeling study">
+<meta property="og:description" content="A within-host modeling study: a therapeutic interfering particle (TIP) coupled to latent-reservoir reactivation is predicted to assist immune-mediated HIV-1 post-treatment control — extending, not contradicting, Dodd &amp; de Boer (2025). Illustrative modeling hypothesis, not a cure.">
+<meta property="og:url" content="https://sethc555.github.io/hiv-aids-research/">
+<meta property="og:image" content="https://sethc555.github.io/hiv-aids-research/og-image.png">
+<meta property="og:site_name" content="Seth Cope — HIV within-host modeling">
+<meta property="article:published_time" content="2026-06-22">
+<meta property="article:author" content="Seth Cope">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="A reservoir-coupled therapeutic interfering particle can assist immune-mediated HIV-1 post-treatment control: a within-host modeling study">
+<meta name="twitter:description" content="A within-host modeling study: a therapeutic interfering particle (TIP) coupled to latent-reservoir reactivation is predicted to assist immune-mediated HIV-1 post-treatment control — extending, not contradicting, Dodd &amp; de Boer (2025). Illustrative modeling hypothesis, not a cure.">
+<meta name="twitter:image" content="https://sethc555.github.io/hiv-aids-research/og-image.png">
+<meta name="citation_title" content="A reservoir-coupled therapeutic interfering particle can assist immune-mediated HIV-1 post-treatment control: a within-host modeling study">
+<meta name="citation_author" content="Cope, Seth">
+<meta name="citation_author_institution" content="Independent researcher">
+<meta name="citation_author_orcid" content="https://orcid.org/0009-0000-5520-915X">
+<meta name="citation_publication_date" content="2026/06/22">
+<meta name="citation_online_date" content="2026/06/22">
+<meta name="citation_doi" content="10.5281/zenodo.20799761">
+<meta name="citation_pdf_url" content="https://sethc555.github.io/hiv-aids-research/manuscript.pdf">
+<meta name="citation_abstract_html_url" content="https://sethc555.github.io/hiv-aids-research/">
+<meta name="citation_keywords" content="HIV-1, therapeutic interfering particle, latent reservoir, post-treatment control, within-host modeling, analytical treatment interruption, viral dynamics">
+<meta name="citation_language" content="en">
+<meta name="DC.title" content="A reservoir-coupled therapeutic interfering particle can assist immune-mediated HIV-1 post-treatment control: a within-host modeling study">
+<meta name="DC.creator" content="Seth Cope">
+<meta name="DC.date" content="2026-06-22">
+<meta name="DC.identifier" content="https://doi.org/10.5281/zenodo.20799761">
+<meta name="DC.description" content="A within-host modeling study: a therapeutic interfering particle (TIP) coupled to latent-reservoir reactivation is predicted to assist immune-mediated HIV-1 post-treatment control — extending, not contradicting, Dodd &amp; de Boer (2025). Illustrative modeling hypothesis, not a cure.">
+<meta name="DC.rights" content="CC BY 4.0">
+<meta name="DC.type" content="Text">
+<meta name="DC.language" content="en">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ScholarlyArticle", "headline": "A reservoir-coupled therapeutic interfering particle can assist immune-mediated HIV-1 post-treatment control: a within-host modeling study", "name": "A reservoir-coupled therapeutic interfering particle can assist immune-mediated HIV-1 post-treatment control: a within-host modeling study", "author": {"@type": "Person", "name": "Seth Cope", "identifier": "https://orcid.org/0009-0000-5520-915X"}, "datePublished": "2026-06-22", "description": "A within-host modeling study: a therapeutic interfering particle (TIP) coupled to latent-reservoir reactivation is predicted to assist immune-mediated HIV-1 post-treatment control \u2014 extending, not contradicting, Dodd & de Boer (2025). Illustrative modeling hypothesis, not a cure.", "url": "https://sethc555.github.io/hiv-aids-research/", "image": "https://sethc555.github.io/hiv-aids-research/og-image.png", "identifier": {"@type": "PropertyValue", "propertyID": "DOI", "value": "10.5281/zenodo.20799761"}, "sameAs": "https://doi.org/10.5281/zenodo.20799761", "keywords": "HIV-1, therapeutic interfering particle, latent reservoir, post-treatment control, within-host modeling, analytical treatment interruption, viral dynamics", "license": "https://creativecommons.org/licenses/by/4.0/", "isAccessibleForFree": true, "publisher": {"@type": "Organization", "name": "Self-archived (Zenodo / GitHub Pages)"}}</script>
 <style>
 @page { size: A4; margin: 2cm; }
 body { font: 11.5pt/1.6 Georgia,'Times New Roman',serif; color:#111;
        max-width: 46rem; margin: 0 auto; padding: 1.5rem 1.2rem 4rem; }
-.banner { border:1px solid #d6d9de; background:#f7f9fb; border-radius:8px;
-          padding:.8rem 1rem; margin:0 0 1.8rem; }
+.banner { border:1px solid #d6d9de; background:#f7f9fb; border-radius:8px; padding:.8rem 1rem; margin:0 0 1.8rem; }
 .bn-links { display:flex; flex-wrap:wrap; gap:1.1rem; font-family:system-ui,sans-serif; font-weight:600; }
-.bn-links a { color:#0a58ca; text-decoration:none; }
-.bn-links a:hover { text-decoration:underline; }
+.bn-links a { color:#0a58ca; text-decoration:none; } .bn-links a:hover { text-decoration:underline; }
 .bn-status { margin-top:.55rem; font-family:system-ui,sans-serif; font-size:.82rem; color:#6b7280; }
 h1 { font-size:1.55rem; line-height:1.25; margin:0 0 .4rem; }
 h2 { font-size:1.15rem; margin:1.7rem 0 .4rem; border-bottom:1px solid #e1e4e8; padding-bottom:.15rem; }
 h3 { font-size:1.0rem; margin:1.1rem 0 .3rem; }
 p, li { text-align: justify; }
-code { font:0.85em ui-monospace,'DejaVu Sans Mono',monospace; background:#f1f3f5;
-       padding:.05em .3em; border-radius:3px; }
+code { font:0.85em ui-monospace,'DejaVu Sans Mono',monospace; background:#f1f3f5; padding:.05em .3em; border-radius:3px; }
 a { color:#0a58ca; text-decoration:none; } a:hover { text-decoration:underline; }
 hr { border:0; border-top:1px solid #e1e4e8; margin:1.4rem 0; }
 img.fig { display:block; max-width:100%; margin:.8rem auto .2rem; border:1px solid #eee; }
 .figpath { display:block; text-align:center; font-size:.8rem; color:#888; margin-bottom:1rem; }
 blockquote { border-left:3px solid #d0d7de; margin:.8rem 0; padding:.2rem 1rem; color:#444; }
-footer { margin-top:3rem; padding-top:1rem; border-top:1px solid #e1e4e8;
-         font-family:system-ui,sans-serif; font-size:.8rem; color:#8b95a1; }
+footer { margin-top:3rem; padding-top:1rem; border-top:1px solid #e1e4e8; font-family:system-ui,sans-serif; font-size:.8rem; color:#8b95a1; }
 </style></head>
 <body>
 <div class="banner">
