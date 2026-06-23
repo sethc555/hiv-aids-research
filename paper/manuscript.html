@@ -1,79 +1,29 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cope 2026 — reservoir-coupled TIP & HIV-1 post-treatment control</title>
-<meta name="description" content="A within-host modeling study: a therapeutic interfering particle (TIP) coupled to latent-reservoir reactivation is predicted to assist immune-mediated HIV-1 post-treatment control — extending, not contradicting, Dodd &amp; de Boer (2025). Illustrative modeling hypothesis, not a cure.">
-<meta name="keywords" content="HIV-1, therapeutic interfering particle, latent reservoir, post-treatment control, within-host modeling, analytical treatment interruption, viral dynamics">
-<meta name="author" content="Seth Cope">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://sethc555.github.io/hiv-aids-research/">
-<link rel="alternate" type="application/pdf" href="https://sethc555.github.io/hiv-aids-research/manuscript.pdf">
-<meta property="og:type" content="article">
-<meta property="og:title" content="A reservoir-coupled therapeutic interfering particle can assist immune-mediated HIV-1 post-treatment control: a within-host modeling study">
-<meta property="og:description" content="A within-host modeling study: a therapeutic interfering particle (TIP) coupled to latent-reservoir reactivation is predicted to assist immune-mediated HIV-1 post-treatment control — extending, not contradicting, Dodd &amp; de Boer (2025). Illustrative modeling hypothesis, not a cure.">
-<meta property="og:url" content="https://sethc555.github.io/hiv-aids-research/">
-<meta property="og:image" content="https://sethc555.github.io/hiv-aids-research/og-image.png">
-<meta property="og:site_name" content="Seth Cope — HIV within-host modeling">
-<meta property="article:published_time" content="2026-06-22">
-<meta property="article:author" content="Seth Cope">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="A reservoir-coupled therapeutic interfering particle can assist immune-mediated HIV-1 post-treatment control: a within-host modeling study">
-<meta name="twitter:description" content="A within-host modeling study: a therapeutic interfering particle (TIP) coupled to latent-reservoir reactivation is predicted to assist immune-mediated HIV-1 post-treatment control — extending, not contradicting, Dodd &amp; de Boer (2025). Illustrative modeling hypothesis, not a cure.">
-<meta name="twitter:image" content="https://sethc555.github.io/hiv-aids-research/og-image.png">
-<meta name="citation_title" content="A reservoir-coupled therapeutic interfering particle can assist immune-mediated HIV-1 post-treatment control: a within-host modeling study">
-<meta name="citation_author" content="Cope, Seth">
-<meta name="citation_author_institution" content="Independent researcher">
-<meta name="citation_author_orcid" content="https://orcid.org/0009-0000-5520-915X">
-<meta name="citation_publication_date" content="2026/06/22">
-<meta name="citation_online_date" content="2026/06/22">
-<meta name="citation_doi" content="10.5281/zenodo.20799761">
-<meta name="citation_pdf_url" content="https://sethc555.github.io/hiv-aids-research/manuscript.pdf">
-<meta name="citation_abstract_html_url" content="https://sethc555.github.io/hiv-aids-research/">
-<meta name="citation_keywords" content="HIV-1, therapeutic interfering particle, latent reservoir, post-treatment control, within-host modeling, analytical treatment interruption, viral dynamics">
-<meta name="citation_language" content="en">
-<meta name="DC.title" content="A reservoir-coupled therapeutic interfering particle can assist immune-mediated HIV-1 post-treatment control: a within-host modeling study">
-<meta name="DC.creator" content="Seth Cope">
-<meta name="DC.date" content="2026-06-22">
-<meta name="DC.identifier" content="https://doi.org/10.5281/zenodo.20799761">
-<meta name="DC.description" content="A within-host modeling study: a therapeutic interfering particle (TIP) coupled to latent-reservoir reactivation is predicted to assist immune-mediated HIV-1 post-treatment control — extending, not contradicting, Dodd &amp; de Boer (2025). Illustrative modeling hypothesis, not a cure.">
-<meta name="DC.rights" content="CC BY 4.0">
-<meta name="DC.type" content="Text">
-<meta name="DC.language" content="en">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ScholarlyArticle", "headline": "A reservoir-coupled therapeutic interfering particle can assist immune-mediated HIV-1 post-treatment control: a within-host modeling study", "name": "A reservoir-coupled therapeutic interfering particle can assist immune-mediated HIV-1 post-treatment control: a within-host modeling study", "author": {"@type": "Person", "name": "Seth Cope", "identifier": "https://orcid.org/0009-0000-5520-915X"}, "datePublished": "2026-06-22", "description": "A within-host modeling study: a therapeutic interfering particle (TIP) coupled to latent-reservoir reactivation is predicted to assist immune-mediated HIV-1 post-treatment control \u2014 extending, not contradicting, Dodd & de Boer (2025). Illustrative modeling hypothesis, not a cure.", "url": "https://sethc555.github.io/hiv-aids-research/", "image": "https://sethc555.github.io/hiv-aids-research/og-image.png", "identifier": {"@type": "PropertyValue", "propertyID": "DOI", "value": "10.5281/zenodo.20799761"}, "sameAs": "https://doi.org/10.5281/zenodo.20799761", "keywords": "HIV-1, therapeutic interfering particle, latent reservoir, post-treatment control, within-host modeling, analytical treatment interruption, viral dynamics", "license": "https://creativecommons.org/licenses/by/4.0/", "isAccessibleForFree": true, "publisher": {"@type": "Organization", "name": "Self-archived (Zenodo / GitHub Pages)"}}</script>
+<title>Cope 2026 — reservoir-coupled TIP / HIV post-treatment control</title>
 <style>
 @page { size: A4; margin: 2cm; }
-body { font: 11.5pt/1.6 Georgia,'Times New Roman',serif; color:#111;
-       max-width: 46rem; margin: 0 auto; padding: 1.5rem 1.2rem 4rem; }
-.banner { border:1px solid #d6d9de; background:#f7f9fb; border-radius:8px; padding:.8rem 1rem; margin:0 0 1.8rem; }
-.bn-links { display:flex; flex-wrap:wrap; gap:1.1rem; font-family:system-ui,sans-serif; font-weight:600; }
-.bn-links a { color:#0a58ca; text-decoration:none; } .bn-links a:hover { text-decoration:underline; }
-.bn-status { margin-top:.55rem; font-family:system-ui,sans-serif; font-size:.82rem; color:#6b7280; }
-h1 { font-size:1.55rem; line-height:1.25; margin:0 0 .4rem; }
-h2 { font-size:1.15rem; margin:1.7rem 0 .4rem; border-bottom:1px solid #e1e4e8; padding-bottom:.15rem; }
-h3 { font-size:1.0rem; margin:1.1rem 0 .3rem; }
+body { font: 11.5pt/1.5 Georgia, 'Times New Roman', serif; color:#111;
+       max-width: 46rem; margin: 2rem auto; padding: 0 1.2rem; }
+h1 { font-size: 1.5rem; line-height:1.25; margin:0 0 .4rem; }
+h2 { font-size: 1.15rem; margin:1.6rem 0 .4rem; border-bottom:1px solid #ccc; padding-bottom:.15rem; }
+h3 { font-size: 1.0rem; margin:1.1rem 0 .3rem; }
 p, li { text-align: justify; }
-code { font:0.85em ui-monospace,'DejaVu Sans Mono',monospace; background:#f1f3f5; padding:.05em .3em; border-radius:3px; }
-a { color:#0a58ca; text-decoration:none; } a:hover { text-decoration:underline; }
-hr { border:0; border-top:1px solid #e1e4e8; margin:1.4rem 0; }
+code { font: 0.85em ui-monospace, 'DejaVu Sans Mono', monospace;
+       background:#f4f4f4; padding:.05em .3em; border-radius:3px; }
+em { color:#222; }
+a { color:#0a58ca; text-decoration:none; }
+hr { border:0; border-top:1px solid #ddd; margin:1.4rem 0; }
 img.fig { display:block; max-width:100%; margin:.8rem auto .2rem; border:1px solid #eee; }
 .figpath { display:block; text-align:center; font-size:.8rem; color:#888; margin-bottom:1rem; }
-blockquote { border-left:3px solid #d0d7de; margin:.8rem 0; padding:.2rem 1rem; color:#444; }
-footer { margin-top:3rem; padding-top:1rem; border-top:1px solid #e1e4e8; font-family:system-ui,sans-serif; font-size:.8rem; color:#8b95a1; }
+blockquote { border-left:3px solid #ccc; margin:.8rem 0; padding:.2rem 1rem; color:#444; }
+@media print { a { color:#111; } body { margin:0; } }
 </style></head>
-<body>
-<div class="banner">
-  <div class="bn-links">
-    <a href="manuscript.pdf">⬇ Download PDF</a>
-    <a href="https://github.com/sethc555/hiv-aids-research">GitHub repository</a>
-    <a href="https://doi.org/10.5281/zenodo.20799761">Zenodo DOI</a>
-  </div>
-  <div class="bn-status">Illustrative within-host modeling study / hypothesis generation —
-  not validated experimental or clinical findings, not a cure. Developed with AI assistance (disclosed).</div>
-</div>
-<h1>A reservoir-coupled therapeutic interfering particle can assist immune-mediated HIV-1 post-treatment control: a within-host modeling study</h1>
+<body><h1>A reservoir-coupled therapeutic interfering particle can assist immune-mediated HIV-1 post-treatment control: a within-host modeling study</h1>
 <p><strong>Author:</strong> Seth Cope¹  <em>(¹ Independent researcher. ORCID: <a href="https://orcid.org/0009-0000-5520-915X">0009-0000-5520-915X</a>)</em></p>
-<p><em>Preprint draft — illustrative modeling study / hypothesis generation. Not validated experimental
-or clinical findings. Convert to PDF (e.g. <code>pandoc MANUSCRIPT.md -o manuscript.pdf</code>) for bioRxiv.</em></p>
+<p><em>Illustrative within-host modeling study / hypothesis generation — not validated experimental or
+clinical findings, and not medical advice. Preprint: Zenodo DOI
+<a href="https://doi.org/10.5281/zenodo.20801700">10.5281/zenodo.20801700</a>.</em></p>
 <hr />
 <h2>Abstract</h2>
 <p><strong>Background.</strong> Therapeutic interfering particles (TIPs) are engineered, conditionally-replicating
@@ -88,7 +38,7 @@ We introduce one coupling parameter, χ, the fraction of reservoir reactivations
 TIP, and test across three structurally distinct immune models. <strong>Results.</strong> A non-coupled TIP (χ=0)
 is neutral to PTC and recovers the de Boer active-infection limit. A TIP coupled to reservoir
 reactivation raises durable control monotonically in χ, helps most for marginal controllers, and
-never backfires — robust across global parameter sampling and all three immune models, and
+shows no systematic backfire — robust across global parameter sampling and all three immune models, and
 protective even under active immune exhaustion. A derived effective reproduction number,
 R_eff = R₀·d/(d+κ), explains the effect: coupling lowers the immune threshold for control.
 <strong>Conclusions.</strong> We predict that a reservoir-co-residing TIP could assist immune-mediated PTC,
@@ -97,15 +47,26 @@ assumption.</p>
 <hr />
 <h2>1. Introduction</h2>
 <p>Antiretroviral therapy (ART) suppresses HIV-1 but does not eliminate the latent reservoir, so
-treatment is lifelong and the virus rebounds on interruption. The leading cure paradigm is durable
-ART-free remission via immune (notably CD8 / &ldquo;vaccinal-effect&rdquo;) control of the reservoir, supported
-by long-acting broadly-neutralizing-antibody trials (e.g. RIO) and combination-immunotherapy results.</p>
+treatment is lifelong and the virus rebounds on interruption. A leading cure goal is durable
+ART-free remission — <em>post-treatment control</em> (PTC), in which the reservoir persists but rebound is
+contained after ART interruption. Its mechanism is multifactorial and not settled: PTC has been associated
+with a smaller reservoir, cytotoxic CD8 responses, NK-cell activity, and humoral immunity, with the dominant
+correlate differing between individuals and settings (Mesquita &amp; Li 2024; Blazkova et al. 2021). CD8 control
+is one contributor — clearest under early ART and antibody/combination immunotherapy (Passaes et al. 2024) —
+but the canonical spontaneous-PTC cohort (VISCONTI) controls with <em>weak</em> CD8 responses, and
+broadly-neutralizing-antibody trials such as RIO act substantially through antibody and reservoir effects
+(the &ldquo;vaccinal&rdquo; effect; Tipoe &amp; Fidler 2022). We therefore model the immune axis generically, as
+cytotoxic-effector killing of antigen-expressing cells (CD8 and/or NK/ADCC), not a CD8-specific pathway.</p>
 <p>A therapeutic interfering particle (TIP) is an engineered defective HIV-1 genome that replicates only
 in cells co-infected by wild-type (WT) virus, diverting WT packaging to itself; a single dose reduced
-SHIV viremia &gt;1000-fold in non-human primates (Pitchai et al., <em>Science</em> 2024), and that study noted
-the TIP &ldquo;suppressed HIV rebound after interruption of ART&rdquo; and that &ldquo;TIP-treated animals exhibited
-significantly improved immune responses&rdquo; — an empirical hint of TIP–immune interplay that has not
-been modeled.</p>
+SHIV viremia by &gt;3 log₁₀ (&gt;1000-fold) in non-human primates, the TIP conditionally replicated for</p>
+<blockquote>
+<p>6 months, and &ldquo;TIP-treated animals exhibited significantly improved immune responses, with no evidence
+of increased inflammation&rdquo; (Pitchai et al., <em>Science</em> 2024) — an empirical hint of TIP–immune interplay
+that has not been modeled. <em>In vitro</em>, the same study found that upon ART cessation the TIP reactivated
+together with HIV and interfered with its outgrowth — a non-clinical hint of the reservoir co-reactivation
+this model formalizes as the coupling χ (the in vivo NHP work included no ART-interruption arm).</p>
+</blockquote>
 <p>Within-host TIP theory has, to date, treated active infection only. Dodd &amp; de Boer (2025, <em>J Theor
 Biol</em>) derive the TIP basic reproduction number and show that an immune response against infected
 cells &ldquo;drastically decreases the range of parameter values for which therapy is effective&rdquo; — i.e.
@@ -126,9 +87,13 @@ co-resides in / co-reactivates with the reservoir. χ=0 reproduces a non-interac
 TIP; χ=1 is a fully reservoir-coupled TIP.</p>
 <p>We test robustness across three structurally distinct immune models: quasi-steady killing with a
 maintained antigen floor; a dynamic waning effector memory (no floor); and an actively-exhaustible
-memory (burden-driven degradation). The rebound clock and PTC fractions are calibrated to clinical
+memory (burden-driven degradation). In all three, the killed compartment is antigen-expressing productive
+cells, so the killing rate κ denotes cytotoxic-effector pressure generically — CD8 and/or NK/ADCC — which
+keeps the result independent of the unresolved question of which effector dominates post-treatment control
+(a deliberate generalization; κ is antigen-driven, fitting adaptive CD8 best). The rebound clock and PTC fractions are calibrated to clinical
 data (untreated/placebo ATI median ~16–22 d; ACTG rebound-by-week-4/12; CHAMP spontaneous PTC ~4–13%;
-RIO bNAb durable control ~24%). Parameters and equations are documented in <code>analysis/METHODS.md</code>; all
+RIO bNAb durable control ~24% — the 7/29 ATI sub-analysis, vs ~21% (7/34) by the trial&rsquo;s primary
+endpoint, HR 0.09). Parameters and equations are documented in <code>analysis/METHODS.md</code>; all
 code is open and a single script (<code>analysis/verify_claims.py</code>) re-derives every headline number,
 including a reproduction of the Dodd &amp; de Boer result.</p>
 <h2>3. Results</h2>
@@ -138,12 +103,14 @@ the TIP decoupled (χ=0), a TIP does not change post-treatment control — recov
 <strong>monotonically</strong> with χ: at a marginal immune level, durable control climbed 22% → 32% → 40% → 45% →
 58% as χ went 0 → 0.25 → 0.5 → 0.75 → 1, with CD8 maintained throughout (the coupled TIP intercepts
 the rebound without starving immunity).</p>
-<p><strong>3.2 The benefit is robust across immune structure and never backfires.</strong> The result holds across
-all three immune models. Under a wear-down-able memory, a coupled TIP still helped (7/9 regimes) and
-never harmed. Under active, burden-driven immune exhaustion combined with a stealthy (low-visibility)
-TIP — the configuration most likely to backfire — there was still no backfire: the TIP helped <em>most</em>
-there (e.g. 17% → ~65% control), because by suppressing the rebound it keeps the antigen burden low
-and <strong>spares the immune response from exhaustion</strong>.</p>
+<p><strong>3.2 The benefit is robust across immune structure, with no systematic backfire.</strong> The result holds
+across all three immune models. Under a wear-down-able memory, a coupled TIP still helped (7/9 regimes)
+and did not harm control. Under active, burden-driven immune exhaustion combined with a stealthy
+(low-visibility) TIP — the configuration most likely to backfire — there was still no backfire: the TIP
+helped <em>most</em> there (e.g. 17% → ~65% control), because by suppressing the rebound it keeps the antigen
+burden low and <strong>spares the immune response from exhaustion</strong>. (Across the broader phase scans, occasional
+small negative nudges of ≤1 point appear within stochastic noise — see <code>analysis/AUDIT2.md</code> — but no
+configuration showed a systematic backfire.)</p>
 <p><strong>3.3 Phase boundary and reduction to prior work (Fig. 1).</strong> As a continuous function of χ and immune
 strength, the TIP effect reduces to the de Boer limit at χ=0 and grows with χ; the benefit is
 concentrated at <em>intermediate / marginal</em> immune strength (where control is on a knife-edge) and
@@ -178,7 +145,14 @@ model predicts (c) &gt; (b) ≈ (a). A null result in arm (c) would falsify the 
 calibrated rebound timing; &ldquo;control&rdquo; is functional (active-infection extinction with the reservoir
 persisting), not sterilizing; coupling χ is a coarse single knob, not a mechanistic co-packaging
 model; Δ(χ) is shown ≥0 numerically, not in closed form (a full next-generation-matrix treatment of
-the nonlinear TIP interference is the natural next step). The conclusions are conditional on the
+the nonlinear TIP interference is the natural next step). The clinical target is itself uncertain:
+post-treatment control is multifactorial and its mechanism unresolved — reservoir size, CD8, NK, and humoral
+immunity are all implicated and vary by individual — so the effector-killing axis here is a deliberate
+generalization, not a validated CD8 mechanism; whether immunity stays primed through suppression (the antigen
+&ldquo;floor&rdquo; that makes control achievable, modeled via defective-clone antigen presentation) is a further
+load-bearing assumption; and there is currently no evidence that a therapeutically delivered TIP localizes to
+the pre-existing replication-competent reservoir, so χ&gt;0 is an engineering goal, not an established property
+(see <code>analysis/AUDIT3.md</code>). The conclusions are conditional on the
 coupling assumption. A multi-agent adversarial audit (in the repository) retracted several of the
 author&rsquo;s own earlier overclaims and is the reason the framing is &ldquo;conditional/assist,&rdquo; not &ldquo;cure.&rdquo;</p>
 <h2>Figures</h2>
@@ -217,4 +191,14 @@ and drafting, under the author&rsquo;s direction; AI tools are not authors. <str
 <li>Lee MJ, Fidler S, Frater J, et al. (RIO trial). <em>Lancet HIV</em> 2026.</li>
 <li>Li JZ, et al. (A5345) <em>Clin Infect Dis</em> 2022; 74:865. Namazi G, et al. (CHAMP) <em>J Infect Dis</em>
    2018; 218:1954.</li>
-</ol><footer>Seth Cope · ORCID 0009-0000-5520-915X · <a href="https://doi.org/10.5281/zenodo.20799761">doi:10.5281/zenodo.20799761</a> · source: <a href="https://github.com/sethc555/hiv-aids-research">github.com/sethc555/hiv-aids-research</a></footer></body></html>
+<li>Mesquita FS, Li Y, Li JZ. Viral and immune predictors of HIV post-treatment control. <em>Curr Opin HIV
+   AIDS</em> 2024; DOI 10.1097/COH.0000000000000898.</li>
+<li>Passaes C, Desjardins D, et al. Early ART favors post-treatment SIV control associated with expanded
+   enhanced-memory CD8+ T cells. <em>Nat Commun</em> 2024; DOI 10.1038/s41467-023-44389-3.</li>
+<li>Tipoe T, Fidler S, et al. How broadly neutralizing antibodies might induce HIV remission: the
+    &lsquo;vaccinal&rsquo; effect. <em>Curr Opin HIV AIDS</em> 2022; DOI 10.1097/COH.0000000000000731.</li>
+<li>Blazkova J, Gao F, et al. Distinct mechanisms of long-term virologic control in two HIV-infected
+    individuals. <em>Nat Med</em> 2021; DOI 10.1038/s41591-021-01503-6. (Plus, on CD8 quality/persistence:
+    Hersperger &amp; Migueles 2011, <em>Curr Opin HIV AIDS</em>; Blankson 2024, <em>Nat Immunol</em>; Kiani et al. 2025,
+    <em>Nature</em>. See <code>analysis/bibliography.md</code> and <code>analysis/AUDIT3.md</code>.)</li>
+</ol></body></html>
