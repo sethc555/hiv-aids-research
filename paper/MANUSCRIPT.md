@@ -4,7 +4,7 @@
 
 _Illustrative within-host modeling study / hypothesis generation — not validated experimental or
 clinical findings, and not medical advice. Preprint: Zenodo DOI
-[10.5281/zenodo.20801700](https://doi.org/10.5281/zenodo.20801700)._
+[10.5281/zenodo.20801699](https://doi.org/10.5281/zenodo.20801699)._
 
 ---
 

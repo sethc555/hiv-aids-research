@@ -57,11 +57,11 @@ prior-art / novelty assessment ([NOVELTY.md](analysis/NOVELTY.md)).
 
 > Seth Cope (2026). *A reservoir-coupled therapeutic interfering particle can assist immune-mediated
 > HIV-1 post-treatment control: a within-host modeling study.* Zenodo preprint.
-> DOI: [10.5281/zenodo.20801700](https://doi.org/10.5281/zenodo.20801700).
+> DOI: [10.5281/zenodo.20801699](https://doi.org/10.5281/zenodo.20801699).
 > GitHub: sethc555/hiv-aids-research. ORCID: 0009-0000-5520-915X.
 
 The code is archived with a citable DOI on [Zenodo](https://doi.org/10.5281/zenodo.20799761); the
-preprint is [10.5281/zenodo.20801700](https://doi.org/10.5281/zenodo.20801700).
+preprint is [10.5281/zenodo.20801699](https://doi.org/10.5281/zenodo.20801699).
 
 ## Disclosures
 
