@@ -27,7 +27,7 @@ that co-introduce the TIP — and test across three structurally distinct immune
 
 **Results.** A *non-coupled* TIP (χ=0) is neutral to post-treatment control and **recovers the
 de Boer active-infection limit**. A TIP **coupled** to reservoir reactivation raises durable control
-**monotonically in χ**, helps most for "marginal controllers," and **never backfires** — robust
+**monotonically in χ**, helps most for "marginal controllers," and **shows no systematic backfire** — robust
 across global (joint) parameter sampling and all three immune models, and protective even when
 immunity is actively exhausted. A derived effective reproduction number, **R_eff = R₀·d/(d+κ)**,
 explains the effect: coupling lowers the immune threshold for control by Δ(χ) ≥ 0.
@@ -56,12 +56,12 @@ prior-art / novelty assessment ([NOVELTY.md](analysis/NOVELTY.md)).
 ## How to cite
 
 > Seth Cope (2026). *A reservoir-coupled therapeutic interfering particle can assist immune-mediated
-> HIV-1 post-treatment control: a within-host modeling study.* Zenodo.
-> DOI: [10.5281/zenodo.20799761](https://doi.org/10.5281/zenodo.20799761).
+> HIV-1 post-treatment control: a within-host modeling study.* Zenodo preprint.
+> DOI: [10.5281/zenodo.20801700](https://doi.org/10.5281/zenodo.20801700).
 > GitHub: sethc555/hiv-aids-research. ORCID: 0009-0000-5520-915X.
 
-The code is archived with a citable DOI on [Zenodo](https://doi.org/10.5281/zenodo.20799761); a
-preprint follows (see below).
+The code is archived with a citable DOI on [Zenodo](https://doi.org/10.5281/zenodo.20799761); the
+preprint is [10.5281/zenodo.20801700](https://doi.org/10.5281/zenodo.20801700).
 
 ## Disclosures
 

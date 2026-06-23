@@ -8,11 +8,13 @@
 > not contradict,** Dodd & de Boer (2025) (a non-coupled TIP is neutral and recovers their limit).
 > *Illustrative modeling hypothesis — not validated findings, not a cure.* The P2–P6 narrative just below
 > is the **earlier, superseded "neutral" stage**; see [P11](analysis/P11_findings.md)–[P16](analysis/P16_findings.md)
-> and [paper/MANUSCRIPT.md](paper/MANUSCRIPT.md) for the final verdict.
+> and [paper/MANUSCRIPT.md](paper/MANUSCRIPT.md) for the final verdict. [AUDIT3](analysis/AUDIT3.md) adds the
+> contested-biology review: the immune axis is **effector-agnostic** (CD8/NK/antibody), not CD8-specific, and
+> "no systematic backfire" replaces the earlier absolute "never backfires."
 
 A research log on **HIV cure strategy**, combining (1) a citation-grounded literature
 corpus of the 2024–2026 cure frontier and (2) a within-host **mathematical-modeling**
-investigation of **therapeutic interfering particles (TIPs)** versus CD8 immune control —
+investigation of **therapeutic interfering particles (TIPs)** versus cytotoxic (CD8/NK) immune control —
 with **multi-agent adversarial audits** of every claim.
 
 > ⚠️ **Status: research log, not findings for clinical or wet-lab use.**
@@ -41,13 +43,13 @@ with **multi-agent adversarial audits** of every claim.
 > marginal immune level), **CD8 stays primed**, i.e. a coupled TIP **HELPS** as an adjunct.
 > The feared *harm* channel — a coupled TIP starving an exhaustible immune memory (the P1
 > antagonism) — was then tested directly ([P12](analysis/P12_findings.md)): with a wear-down-able
-> dynamic immune memory (no floor), the coupled TIP **still helps and never backfired** (helps in
+> dynamic immune memory (no floor), the coupled TIP **still helps and did not backfire** (helps in
 > 7/9 regimes, mild/neutral only at extreme evasion). So "coupled TIP helps" is robust across two
 > structurally different immune models. The last corner — **active immune exhaustion** (burden
 > *degrades* CD8) plus a **stealthy** TIP — was then tested too ([P13](analysis/P13_findings.md)):
 > still **no backfire anywhere**; the TIP in fact helps *most* there (+~50 pts), because by holding
 > the viral burden down it **protects the immune response from exhaustion**. So "coupled TIP helps,
-> never backfires" now holds across **three** structurally different immune models. Caveats: it
+> no systematic backfire" now holds across **three** structurally different immune models. Caveats: it
 > needs substantial coupling (χ≈0.5 is weak) and **assists but cannot replace** immunity (0%
 > control if immunity isn't maintained). **Bottom line: a TIP is not orthogonal to the cure;
 > coupled to the reactivating reservoir it is a useful adjunct — most valuable, not least, when the
@@ -60,8 +62,10 @@ with **multi-agent adversarial audits** of every claim.
 It started from a different question — *could a federated-database / drug-repurposing
 engine help cure HIV?* The answer was **no** (the cure-relevant data isn't in federatable
 databases), which led to mapping where the field actually is: a decisive shift toward
-**durable ART-free remission via CD8/"vaccinal-effect" immune control** (the Geneva & 2nd-
-Berlin transplants, the RIO bNAb trial, the UCSF combination-immunotherapy result). The one
+**durable ART-free remission via immune control of the reservoir** — a multifactorial mechanism (CD8,
+NK, and antibody/"vaccinal-effect" effectors; the dominant one is debated and varies by setting — see
+[AUDIT3](analysis/AUDIT3.md)) — evidenced by the Geneva & 2nd-Berlin transplants, the RIO bNAb trial,
+and the UCSF combination-immunotherapy result. The one
 **no-wet-lab modeling lane** that was genuinely open was **TIPs** — engineered conditionally-
 replicating defective HIV genomes (Weinberger/Pitchai; de Boer). So the project became a
 multi-phase model of *whether a TIP helps or fights* an immune-control cure, stress-tested by

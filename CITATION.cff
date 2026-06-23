@@ -9,7 +9,7 @@ abstract: >-
   interfering particle (TIP) coupled to reservoir reactivation is predicted to assist (not
   antagonize) immune-mediated post-treatment control; a non-coupled TIP recovers the de Boer
   active-infection limit. The effect is robust across global parameter sampling and three
-  immune models, never backfires, and is explained by a derived effective reproduction number.
+  immune models, shows no systematic backfire, and is explained by a derived effective reproduction number.
   Illustrative modeling hypothesis, not validated experimental findings.
 type: software
 authors:

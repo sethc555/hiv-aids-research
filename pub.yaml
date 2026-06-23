@@ -6,7 +6,7 @@ abstract: |
   range on active infection; we add a latent replication-competent reservoir and an ART->ATI schedule and
   introduce one coupling parameter, chi. A non-coupled TIP is neutral (recovering the de Boer limit); a
   TIP coupled to reservoir reactivation raises durable control monotonically in chi, helps most for
-  marginal controllers, and never backfires - explained by a derived effective reproduction number
+  marginal controllers, with no systematic backfire, explained by a derived effective reproduction number
   R_eff = R0 d / (d + kappa). Illustrative modeling hypothesis, not validated clinical findings.
 manuscript: "paper/MANUSCRIPT.md"
 figures:
