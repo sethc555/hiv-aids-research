@@ -588,3 +588,20 @@ _Venue-gated to reputable journals/preprints OR ≥15 citations. Preprints tagge
   https://doi.org/10.3324/haematol.2023.283058
 - **Utilizing immunotherapy towards achieving a functional cure for HIV-1** (2024) — Fabrícia Heloísa Cavicchioli Sugiyama, L. L. Dietz, O. Søgaard · _Current Opinion in HIV and AIDS_ · 4 cites (infl 0)
   https://doi.org/10.1097/COH.0000000000000856
+
+## contested-biology review additions (AUDIT3, 2026-06-22)
+_Added by the contested-biology audit ([AUDIT3.md](AUDIT3.md)); not part of the 2026-06-19 S2 sweep above.
+These support the PTC-mechanism reframing: CD8 is one effector among several (reservoir size, NK, humoral),
+and its weight is setting-dependent (strong under early ART / antibody therapy, weak in spontaneous VISCONTI control)._
+- **Early antiretroviral therapy favors post-treatment SIV control associated with the expansion of enhanced memory CD8+ T-cells** (2024) — C. Passaes, D. Desjardins et al. · _Nature Communications_ · 47 cites (infl 0)
+  https://doi.org/10.1038/s41467-023-44389-3
+- **CD8+ T cell stemness precedes post-intervention control of HIV viraemia** (2025) — Z. Kiani, J. M. Urbach et al. · _Nature_ · 14 cites (infl 0)
+  https://doi.org/10.1038/s41586-025-09932-w
+- **Distinct mechanisms of long-term virologic control in two HIV-infected individuals after treatment interruption of anti-retroviral therapy** (2021) — J. Blazkova, Feng Gao et al. · _Nature Medicine_ · 41 cites (infl 0)
+  https://doi.org/10.1038/s41591-021-01503-6
+- **Long-term antiretroviral therapy rejuvenates the HIV-specific CD8+ T cell response** (2024) — J. Blankson · _Nature Immunology_ · 2 cites (infl 0)
+  https://doi.org/10.1038/s41590-024-01924-8
+- **Qualitative features of the HIV-specific CD8+ T-cell response associated with immunologic control** (2011) — Adam R. Hersperger, S. Migueles et al. · _Current Opinion in HIV and AIDS_ · 95 cites (infl 0)
+  https://doi.org/10.1097/COH.0b013e3283454c39
+- **An exploration of how broadly neutralizing antibodies might induce HIV remission: the 'vaccinal' effect** (2022) — Timothy Tipoe, S. Fidler et al. · _Current Opinion in HIV and AIDS_ · 19 cites (infl 0)
+  https://doi.org/10.1097/COH.0000000000000731
