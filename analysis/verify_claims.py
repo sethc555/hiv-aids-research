@@ -237,6 +237,18 @@ def verify_analytic():
           "(p14 coupling grid; closed form OPEN)")
 
 
+def verify_loo():
+    # OUT-OF-SAMPLE VALIDATION (loo_validation.py): the honest bound. The reduced rebound clock is a
+    # faithful proxy of the full P6 KM, AND the clinical timing anchors do NOT transfer out-of-sample
+    # from a clock alone (heavy tail = immune heterogeneity) -> they're fitted; the real out-of-sample
+    # evidence is the de Boer external reproduction. Pattern borrowed from the sibling T1D repo.
+    print("LOO — out-of-sample validation (loo_validation.py; honest bound):")
+    import loo_validation as L
+    check("reduced clock faithful to full P6 KM (<8 pts)", 100 * L._fidelity, 0, 8, "(proxy valid)")
+    check("rebound-timing anchors NOT clock-predictable (held-out err >25%)",
+          100 * L.MEDIAN_TIMING_ERR, 25, 500, "(honest negative; tail = immune heterogeneity)")
+
+
 # Registry maps a stable claim-group id -> its verifier (insertion order = report order).
 # Used by `--check <id>` and by the claimcheck manifest (claims.yaml). Adding a group here
 # automatically exposes it to both the CLI and any external verifier.
@@ -244,7 +256,7 @@ REGISTRY = {
     "p1": verify_p1, "p3": verify_p3, "p4_p6": verify_p4_p6, "p8": verify_p8,
     "p11": verify_p11, "p12": verify_p12, "p13": verify_p13, "deboer": verify_deboer,
     "p14": verify_p14, "p15": verify_p15, "p16": verify_p16,
-    "analytic": verify_analytic,
+    "analytic": verify_analytic, "loo": verify_loo,
 }
 
 
