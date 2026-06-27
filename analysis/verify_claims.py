@@ -249,6 +249,24 @@ def verify_loo():
           100 * L.MEDIAN_TIMING_ERR, 25, 500, "(honest negative; tail = immune heterogeneity)")
 
 
+def verify_triage():
+    # DESIGN-TRIAGE ENGINE (triage.py): the model's verdict map made queryable. Assert it reproduces the
+    # model's call on every canonical TIP-design regime. Pattern borrowed from the sibling T1D repo.
+    print("TRIAGE — design-triage reproduces the model's verdicts (triage.py):")
+    from triage import triage
+    cases = [
+        (dict(chi=0.0, kappa=5.0), "NEUTRAL"),                          # decoupled = de Boer limit
+        (dict(chi=1.0, kappa=5.0), "HELPS"),                           # coupled + marginal
+        (dict(chi=1.0, kappa=9.0), "NEUTRAL"),                         # strong = no headroom
+        (dict(chi=1.0, kappa=5.0, psi=5.0), "NO-BENEFIT"),            # sub-threshold psi
+        (dict(chi=0.5, kappa=5.0), "CONDITIONAL"),                    # sub-threshold coupling
+        (dict(chi=1.0, kappa=2.0), "NO-BENEFIT"),                     # weak immunity
+    ]
+    nok = sum(triage(**kw)["verdict"] == exp for kw, exp in cases)
+    check("triage reproduces all canonical model verdicts", nok, len(cases), len(cases),
+          f"({nok}/{len(cases)}; no HARMS verdict exists -> no backfire)")
+
+
 # Registry maps a stable claim-group id -> its verifier (insertion order = report order).
 # Used by `--check <id>` and by the claimcheck manifest (claims.yaml). Adding a group here
 # automatically exposes it to both the CLI and any external verifier.
@@ -256,7 +274,7 @@ REGISTRY = {
     "p1": verify_p1, "p3": verify_p3, "p4_p6": verify_p4_p6, "p8": verify_p8,
     "p11": verify_p11, "p12": verify_p12, "p13": verify_p13, "deboer": verify_deboer,
     "p14": verify_p14, "p15": verify_p15, "p16": verify_p16,
-    "analytic": verify_analytic, "loo": verify_loo,
+    "analytic": verify_analytic, "loo": verify_loo, "triage": verify_triage,
 }
 
 
