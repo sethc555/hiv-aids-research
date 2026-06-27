@@ -222,6 +222,21 @@ def verify_p16():
           f"(noTIP {100*c0:.0f}% -> coupled {100*c1:.0f}%)")
 
 
+def verify_analytic():
+    # DERIVED CLOSED FORMS (analysis/analytic.py): the "formulas for review" layer — R0, the control
+    # threshold, the NGM TIP-invasion threshold, the sub-linear R0_TIP scaling, and Delta(chi)>=0.
+    # Pattern borrowed from the sibling T1D repo so a reviewer can check model->formula->number by hand.
+    print("ANALYTIC — derived closed forms (model -> formula -> number; analytic.py):")
+    import analytic as A
+    check("R0 = b*T0*p/(d*c) = 8.70", A.R0, 8.65, 8.75, "[exact]")
+    check("kappa_crit = (R0-1)d = 7.70", A.KAPPA_CRIT, 7.65, 7.75, "[exact, R_eff(kappa_crit)=1]")
+    check("NGM TIP invasion threshold psi* ~ 7.49", A.psi_star, 7.0, 8.0, "(rho(F Vmat^-1)=1)")
+    check("R0_TIP sub-linear: ratio(20/7.5) ~ 1.63 (<2 = not linear)",
+          A.R0_tip(20.0) / A.R0_tip(7.5), 1.3, 2.0, "(~sqrt(psi), two-stage cycle)")
+    check("Delta(chi) >= 0, increasing (no backfire; numeric)", 1.0 if A.OUT[4] else 0.0, 0.5, 1.5,
+          "(p14 coupling grid; closed form OPEN)")
+
+
 # Registry maps a stable claim-group id -> its verifier (insertion order = report order).
 # Used by `--check <id>` and by the claimcheck manifest (claims.yaml). Adding a group here
 # automatically exposes it to both the CLI and any external verifier.
@@ -229,6 +244,7 @@ REGISTRY = {
     "p1": verify_p1, "p3": verify_p3, "p4_p6": verify_p4_p6, "p8": verify_p8,
     "p11": verify_p11, "p12": verify_p12, "p13": verify_p13, "deboer": verify_deboer,
     "p14": verify_p14, "p15": verify_p15, "p16": verify_p16,
+    "analytic": verify_analytic,
 }
 
 
