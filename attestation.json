@@ -1,31 +1,31 @@
 {
   "schema": "claimcheck/v0.1",
-  "manifest_sha256": "ea6e14c4214c10e5968ff34d2155cefdefde2f411a1973abd1ab1b5f9dfca439",
+  "manifest_sha256": "c9658eab66dc55d62ec856c7b43a775733ae8b8ba9cc63e33b5b5ffe9076effa",
   "artifact": {
     "title": "A reservoir-coupled therapeutic interfering particle can assist immune-mediated HIV-1 post-treatment control: a within-host modeling study",
     "author": "Seth Cope",
     "orcid": "0009-0000-5520-915X",
     "doi": "10.5281/zenodo.20799761",
     "repo": "https://github.com/sethc555/hiv-aids-research",
-    "commit": "169fe0250ddda3fc06e507e5921d95ee44c55354",
+    "commit": "7fb150b83d9e5c608b799f9b6184a848089390e7",
     "working_tree_dirty": false
   },
   "verifier": {
     "name": "claimcheck",
     "version": "0.1.0"
   },
-  "verified_at": "2026-06-22T18:18:55.505175+00:00",
+  "verified_at": "2026-06-27T22:19:59.260002+00:00",
   "host": {
     "platform": "Linux-6.17.0-35-generic-x86_64-with-glibc2.39",
     "python": "3.12.3"
   },
-  "environment_hash": "sha256:6a7f168c8e60ab95508bfa442a90001fd9d562b3d59a8e5be7a27397e33b5d9a",
+  "environment_hash": "sha256:7d7de7689fe1d19d7f94ba080c83bbabb2b0b729432d72e0e6eeaa80953bfe91",
   "results": [
     {
       "id": "p1",
       "status": "pass",
       "exit_code": 0,
-      "duration_s": 1.2,
+      "duration_s": 1.1,
       "detail": "",
       "stdout_tail": "  [PASS] immunity collapses TIP suppression (kap0 - kap0.8 > 0.5): got=3.817 expect[0.5,6] (kap0 3.84 vs kap0.8 0.02 log)\n\n==== claim-chain verification: 4/4 checks PASS ===="
     },
@@ -33,7 +33,7 @@
       "id": "p3",
       "status": "pass",
       "exit_code": 0,
-      "duration_s": 8.4,
+      "duration_s": 7.7,
       "detail": "",
       "stdout_tail": "  [PASS] P3 CD8 retained in cures ~82%: got=81.65 expect[70,95] \n\n==== claim-chain verification: 3/3 checks PASS ===="
     },
@@ -41,7 +41,7 @@
       "id": "p4_p6",
       "status": "pass",
       "exit_code": 0,
-      "duration_s": 66.1,
+      "duration_s": 57.0,
       "detail": "",
       "stdout_tail": "  [PASS] P6 rebound median in clinical range 12-30d: got=28.34 expect[12,32] (A5345 ~22d)\n\n==== claim-chain verification: 5/5 checks PASS ===="
     },
@@ -49,7 +49,7 @@
       "id": "p8",
       "status": "pass",
       "exit_code": 0,
-      "duration_s": 24.6,
+      "duration_s": 16.9,
       "detail": "",
       "stdout_tail": "  [PASS] P8 synergy: 10x reservoir reduction raises cure (kf=13): got=59.67 expect[10,100] (1x 6% vs 10x 66%; NB direction only, not super-additivity)\n\n==== claim-chain verification: 2/2 checks PASS ===="
     },
@@ -57,7 +57,7 @@
       "id": "p11",
       "status": "pass",
       "exit_code": 0,
-      "duration_s": 20.4,
+      "duration_s": 14.1,
       "detail": "",
       "stdout_tail": "  [PASS] P11 coupling raises control (chi 0->1, kf=11): got=29.33 expect[10,100] (decoupled 24% -> coupled 53%; flips the 'neutral' verdict)\n\n==== claim-chain verification: 1/1 checks PASS ===="
     },
@@ -65,7 +65,7 @@
       "id": "p12",
       "status": "pass",
       "exit_code": 0,
-      "duration_s": 18.6,
+      "duration_s": 15.3,
       "detail": "",
       "stdout_tail": "  [PASS] P12 coupled TIP does not backfire (dControl >= -5pts): got=6.667 expect[-5,100] (noTIP 77% -> coupled 83%; helps under exhaustible immunity)\n\n==== claim-chain verification: 1/1 checks PASS ===="
     },
@@ -73,7 +73,7 @@
       "id": "p13",
       "status": "pass",
       "exit_code": 0,
-      "duration_s": 19.4,
+      "duration_s": 17.9,
       "detail": "",
       "stdout_tail": "  [PASS] P13 no backfire under active exhaustion (dControl >= -5pts): got=34 expect[-5,100] (noTIP 26% -> coupled 60%; TIP protects vs exhaustion)\n\n==== claim-chain verification: 1/1 checks PASS ===="
     },
@@ -81,7 +81,7 @@
       "id": "deboer",
       "status": "pass",
       "exit_code": 0,
-      "duration_s": 1.1,
+      "duration_s": 0.9,
       "detail": "",
       "stdout_tail": "  [PASS] de Boer: TIP active-VL benefit collapses under immunity (b0-b0.8 > 1): got=1.439 expect[1,6] (kap0 1.44 -> kap0.8 0.00 log)\n\n==== claim-chain verification: 1/1 checks PASS ===="
     },
@@ -89,7 +89,7 @@
       "id": "p14",
       "status": "pass",
       "exit_code": 0,
-      "duration_s": 16.6,
+      "duration_s": 15.5,
       "detail": "",
       "stdout_tail": "  [PASS] P14 coupling helps at marginal immunity (kf=12, chi 0->1): got=34.67 expect[8,100] (de Boer-limit 50% -> coupled 85%)\n\n==== claim-chain verification: 1/1 checks PASS ===="
     },
@@ -97,7 +97,7 @@
       "id": "p15",
       "status": "pass",
       "exit_code": 0,
-      "duration_s": 29.3,
+      "duration_s": 25.6,
       "detail": "",
       "stdout_tail": "  [PASS] P15 no backfire across diverse params (min dControl >= -6pts): got=0 expect[-6,100] (worst-case TIP effect +0 pts)\n\n==== claim-chain verification: 1/1 checks PASS ===="
     },
@@ -105,14 +105,46 @@
       "id": "p16",
       "status": "pass",
       "exit_code": 0,
-      "duration_s": 5.7,
+      "duration_s": 5.2,
       "detail": "",
       "stdout_tail": "  [PASS] P16 coupled TIP helps in the marginal band (kappa=5): got=40.67 expect[8,100] (noTIP 51% -> coupled 92%)\n\n==== claim-chain verification: 2/2 checks PASS ===="
+    },
+    {
+      "id": "analytic",
+      "status": "pass",
+      "exit_code": 0,
+      "duration_s": 0.8,
+      "detail": "",
+      "stdout_tail": "  [PASS] Delta(chi) >= 0, increasing (no backfire; numeric): got=1 expect[0.5,1.5] (p14 coupling grid; closed form OPEN)\n\n==== claim-chain verification: 5/5 checks PASS ===="
+    },
+    {
+      "id": "loo",
+      "status": "pass",
+      "exit_code": 0,
+      "duration_s": 18.1,
+      "detail": "",
+      "stdout_tail": "  [PASS] rebound-timing anchors NOT clock-predictable (held-out err >25%): got=42.68 expect[25,500] (honest negative; tail = immune heterogeneity)\n\n==== claim-chain verification: 2/2 checks PASS ===="
+    },
+    {
+      "id": "triage",
+      "status": "pass",
+      "exit_code": 0,
+      "duration_s": 0.8,
+      "detail": "",
+      "stdout_tail": "  [PASS] triage reproduces all canonical model verdicts: got=6 expect[6,6] (6/6; no HARMS verdict exists -> no backfire)\n\n==== claim-chain verification: 1/1 checks PASS ===="
+    },
+    {
+      "id": "corrections",
+      "status": "pass",
+      "exit_code": 0,
+      "duration_s": 0.8,
+      "detail": "",
+      "stdout_tail": "  [PASS] C3: no SYSTEMATIC backfire (grid min >= -2 pts): got=-0.5556 expect[-2,0.5] (softened from the absolute 'never')\n\n==== claim-chain verification: 3/3 checks PASS ===="
     }
   ],
   "summary": {
-    "passed": 11,
-    "total": 11,
+    "passed": 15,
+    "total": 15,
     "all_passed": true
   },
   "signature": null,
