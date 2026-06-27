@@ -267,6 +267,22 @@ def verify_triage():
           f"({nok}/{len(cases)}; no HARMS verdict exists -> no backfire)")
 
 
+def verify_corrections():
+    # RETRACTION TRAIL (corrections.json): re-derive the reversals so each withdrawn overclaim stays
+    # machine-verifiable (the old claim reproducibly wrong, the correction holds). Borrowed from T1D.
+    import os as _os
+    import analytic as A
+    here = _os.path.dirname(_os.path.abspath(__file__))
+    eff = np.load(_os.path.join(here, "p14_coupling_phase.npz"))["effect"]
+    print("CORRECTIONS — retraction-trail reversals re-derived (corrections.json):")
+    check("C1: withdrawn linear 0.134*psi wrong; sqrt(psi) holds", A.R0_tip(20.0) / A.R0_tip(7.5),
+          1.3, 2.0, "(NGM; the linear fit would give 2.67)")
+    check("C2: 'neutral' was a chi=0 artifact; coupled chi=1 helps", 100 * float(np.mean(eff[-1])),
+          5, 100, "(P11 verdict flip)")
+    check("C3: no SYSTEMATIC backfire (grid min >= -2 pts)", 100 * float(eff.min()),
+          -2, 0.5, "(softened from the absolute 'never')")
+
+
 # Registry maps a stable claim-group id -> its verifier (insertion order = report order).
 # Used by `--check <id>` and by the claimcheck manifest (claims.yaml). Adding a group here
 # automatically exposes it to both the CLI and any external verifier.
@@ -275,6 +291,7 @@ REGISTRY = {
     "p11": verify_p11, "p12": verify_p12, "p13": verify_p13, "deboer": verify_deboer,
     "p14": verify_p14, "p15": verify_p15, "p16": verify_p16,
     "analytic": verify_analytic, "loo": verify_loo, "triage": verify_triage,
+    "corrections": verify_corrections,
 }
 
 
