@@ -62,3 +62,19 @@ claims:
     statement: "Semi-analytic criterion: kappa_crit = (R0-1)d = 7.70/day; R_eff = R0*d/(d+kappa); the coupled TIP helps in the marginal band and never backfires."
     reproduce: "python3 verify_claims.py --check p16"
     expect: { exit_code: 0 }
+  - id: analytic
+    statement: "Derived closed forms (reviewer-checkable): R0 = b*T0*p/(d*c) = 8.70; control threshold kappa_crit = (R0-1)d = 7.70; the TIP invasion threshold psi* = 7.49 via a next-generation matrix; R0_TIP scales sub-linearly (~sqrt(psi)); the coupling threshold-shift Delta(chi) >= 0 (closed form open)."
+    reproduce: "python3 verify_claims.py --check analytic"
+    expect: { exit_code: 0 }
+  - id: loo
+    statement: "Out-of-sample bound: the reduced rebound clock is a faithful proxy of the full stochastic model, and the clinical KM timing anchors do NOT transfer out-of-sample from a reservoir clock alone (they are fitted; the genuine out-of-sample evidence is the de Boer external reproduction)."
+    reproduce: "python3 verify_claims.py --check loo"
+    expect: { exit_code: 0 }
+  - id: triage
+    statement: "The design-triage engine reproduces the model's verdict on every canonical TIP-design regime (decoupled/bolus -> neutral; sub-threshold psi / unmaintained immunity -> no-benefit; reservoir-coupled + marginal -> helps); no regime returns a backfire verdict."
+    reproduce: "python3 verify_claims.py --check triage"
+    expect: { exit_code: 0 }
+  - id: corrections
+    statement: "The retraction trail is machine-verifiable: the withdrawn overclaims are reproducibly wrong and the corrections hold (R0_TIP linear 0.134*psi -> sqrt(psi); 'TIP neutral' was a chi=0 artifact; absolute 'never backfires' -> no systematic backfire)."
+    reproduce: "python3 verify_claims.py --check corrections"
+    expect: { exit_code: 0 }
