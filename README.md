@@ -102,6 +102,13 @@ analysis/          all working files (flat, runnable in place)
   tip_model_p15_sensitivity.py   P15  — global sensitivity: benefit robust across joint params, 0% backfire
   tip_model_p16_analytic.py      P16  — semi-analytical criterion: R_eff=R0*d/(d+k); coupling shifts threshold
   tip_model_deboer_bridge.py     recreate Dodd & de Boer 2025 + bridge: why ours extends (not flips) theirs
+  --- derived analytics & standing rigor layer (verify groups attested in claims.yaml) ---
+  analytic.py + verify_analytic.py   derived closed forms: R0=8.70, kappa_crit=7.70, NGM psi*=7.49, R0_TIP~sqrt(psi); Delta(chi) OPEN
+  loo_validation.py + verify_loo.py  out-of-sample (leave-one-anchor-out): the honest "more-than-fitted-knobs" bound
+  triage.py + verify_triage.py       design-triage engine: query a TIP design -> verdict + mechanism + fix + confidence + trace
+  assumptions.json + validate.py     machine-checkable assumption registry + blind-spot validator (dig-here queue)
+  corrections.json + verify_corrections.py   machine-verifiable retraction trail (each withdrawn overclaim kept reproducible)
+  verify_claims.py, claims.yaml, attestation.json   the claim chain (15 groups) + claimcheck manifest + re-runnable attestation
   METHODS.md                     consolidated methods (equations, params, numerics, audit)
   NOVELTY.md                     prior-art / novelty assessment + the de Boer reconciliation
   P1_findings.md … P6_findings.md, P8_boosters.md   per-phase write-ups

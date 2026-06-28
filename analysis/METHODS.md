@@ -161,6 +161,18 @@ P5 calibration targets). Defined in `tip_model.py` (`P`, `QS`) and `tip_model_p4
 5. **Adversarial review:** every claim went through self-audit + multi-agent audit; retractions
    and corrections are logged in [AUDIT.md](AUDIT.md), not silently edited.
 
+**Derived analytics & standing rigor layer (machine-checkable).** The closed forms are consolidated and
+verified in [analytic.py](analytic.py) — R0, the control threshold kappa_crit=(R0-1)d, the
+next-generation-matrix invasion threshold psi*≈7.49, the sub-linear R0_TIP~√psi, and Delta(chi) flagged
+**OPEN**. Out-of-sample status is bounded honestly in [loo_validation.py](loo_validation.py)
+(leave-one-anchor-out: the clinical KM timing anchors are *fitted*, not transferable; the genuine
+out-of-sample evidence is the de Boer reproduction). [validate.py](validate.py) + [assumptions.json](assumptions.json)
+catalogue every model assumption and surface uncatalogued parameters (a blind-spot dig-here queue);
+[triage.py](triage.py) makes the verdict map queryable; and [corrections.json](corrections.json) +
+verify_corrections.py keep each retracted overclaim reproducible. All are wired into
+[verify_claims.py](verify_claims.py) — **15 attested claim groups** (claims.yaml / attestation.json).
+This layer was ported from the sibling type-1-diabetes repo.
+
 ---
 
 ## 7. Calibration methodology (P5)
