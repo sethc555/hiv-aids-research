@@ -14,6 +14,7 @@ that keeps CD8 up? i.e. does (peripheral WT) DECOUPLE from (total antigen/CD8),
 breaking the well-mixed -1 anti-correlation? If yes, the antagonism is a well-mixed
 artifact; if no, it's structural even in tissue.
 """
+import os
 import numpy as np
 from scipy.integrate import solve_ivp
 import matplotlib
@@ -21,6 +22,8 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from tip_model import P, T0, _san
 from tip_model_p13_wm import QS, Estar, killrate
+
+HERE = os.path.dirname(os.path.abspath(__file__))   # path-portable (AUDIT2 #14)
 
 
 def rhs(t, y, psi, phi, g):
@@ -110,7 +113,7 @@ def main():
     ax[1].set_ylabel("TIP follicle access phi")
     ax[1].set_title("CD8 retention (blue = escape: systemic down + CD8 kept)")
     fig.colorbar(im1, ax=ax[1])
-    fig.tight_layout(); fig.savefig("/home/seth/dev/hiv-aids-research/analysis/p13_spatial.png", dpi=130)
+    fig.tight_layout(); fig.savefig(os.path.join(HERE, "p13_spatial.png"), dpi=130)
     print("wrote p13_spatial.png")
 
 

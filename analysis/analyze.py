@@ -11,11 +11,12 @@ Raw S2 JSON is cached to disk so re-runs are free (self-curating corpus).
 
 Reads S2_API_KEY from env. Mirrors scan.py conventions (urllib, x-api-key, 429 backoff).
 """
+import os
 import json, os, sys, time, urllib.parse, urllib.request
 
 KEY = os.environ.get("S2_API_KEY", "")
 G = "https://api.semanticscholar.org/graph/v1"
-HERE = "/home/seth/dev/hiv-aids-research/analysis"
+HERE = os.path.dirname(os.path.abspath(__file__))
 CACHE = os.path.join(HERE, "raw_cache.json")
 
 # ---- topic scan (same 18 as scan.py) -------------------------------------

@@ -26,6 +26,7 @@ Tests:
 Metric: time-AVERAGED Vw over the last 300 d (handles cycles, not t=end snapshots).
 Reuses HIV params from tip_model.py.
 """
+import os
 import sys
 import numpy as np
 from scipy.integrate import solve_ivp
@@ -33,6 +34,8 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from tip_model import P, T0, _san
+
+HERE = os.path.dirname(os.path.abspath(__file__))   # path-portable (AUDIT2 #14)
 
 # tuned for a chronic CONTROLLED setpoint (~0.7 log below the no-immunity 7.7e5)
 # with persistent, exhausted CD8. NOTE: antigen-driven CD8 control is intrinsically
@@ -119,7 +122,7 @@ def main():
     ax[1].semilogy(sl.t, np.clip(sl.y[6]+sl.y[7], 1e-2, None), "tab:orange", lw=2, label="late TIP")
     ax[1].set_xlabel("days"); ax[1].set_ylabel("CD8 E+M"); ax[1].legend(fontsize=9)
     ax[1].set_title("Exp A: does the TIP erase the CD8 response?")
-    fig.tight_layout(); fig.savefig("/home/seth/dev/hiv-aids-research/analysis/p12_timecourse.png", dpi=130)
+    fig.tight_layout(); fig.savefig(os.path.join(HERE, "p12_timecourse.png"), dpi=130)
     print(f"\nExp A (psi=15): early-TIP avg CD8={np.mean(se.y[6,-100:]+se.y[7,-100:]):.2e}, "
           f"late-TIP CD8={np.mean(sl.y[6,-100:]+sl.y[7,-100:]):.2e}, no-TIP CD8={em0:.2e}")
     if quick:
@@ -135,7 +138,7 @@ def main():
             vw, em, _ = run_tip(psi, ta)
             wtred[i, j] = np.log10(vw0) - np.log10(vw)
             cd8ret[i, j] = em / max(em0, 1e-9)
-    np.savez("/home/seth/dev/hiv-aids-research/analysis/p12_sweep.npz",
+    np.savez(os.path.join(HERE, "p12_sweep.npz"),
              TADM=TADM, PSI=PSI, wtred=wtred, cd8ret=cd8ret, vw0=vw0, em0=em0)
 
     # immune-compatible = WT down >=1 log AND CD8 retained >=50%
@@ -155,7 +158,7 @@ def main():
     ax2[1].set_ylabel("TIP advantage psi")
     ax2[1].set_title("CD8 retained vs no-TIP\n(<1 = TIP suppressed the response)")
     fig2.colorbar(im1, ax=ax2[1], label="(E+M with TIP) / (E+M no TIP)")
-    fig2.tight_layout(); fig2.savefig("/home/seth/dev/hiv-aids-research/analysis/p12_antagonism.png", dpi=130)
+    fig2.tight_layout(); fig2.savefig(os.path.join(HERE, "p12_antagonism.png"), dpi=130)
 
     print("\n--- Exp B: antagonism search ---")
     print(f"cells with WT down >=1 log: {(wtred>=1).sum()}/{wtred.size}")

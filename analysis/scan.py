@@ -8,13 +8,16 @@ consensus/timeline) + the "predict post-intervention control" modeling target.
 
   python3 scan.py            # runs all topics, writes scan_results.md
 """
+import os
 import json, os, sys, time, urllib.parse, urllib.request
+
+HERE = os.path.dirname(os.path.abspath(__file__))   # path-portable (AUDIT2 #14)
 
 KEY = os.environ.get("S2_API_KEY", "")
 BASE = "https://api.semanticscholar.org/graph/v1/paper/search"
 FIELDS = ("title,year,authors,citationCount,influentialCitationCount,abstract,"
           "externalIds,venue,openAccessPdf,publicationTypes")
-OUT = "/home/seth/dev/hiv-aids-research/analysis/scan_results.md"
+OUT = os.path.join(HERE, "scan_results.md")
 
 # (stem, heading, query, year_filter, sort, limit)
 #   sort: "recent" -> (year desc, citations desc);  "cite" -> citations desc

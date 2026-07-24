@@ -3,12 +3,15 @@
 CD8-retention trade-off as a Pareto scatter, immune to the oscillation-phase
 confound that corrupts the (t_admin) axis. Flags the eradication-column artifact.
 """
+import os
 import numpy as np
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-d = np.load("/home/seth/dev/hiv-aids-research/analysis/p12_sweep.npz")
+HERE = os.path.dirname(os.path.abspath(__file__))   # path-portable (AUDIT2 #14)
+
+d = np.load(os.path.join(HERE, "p12_sweep.npz"))
 TADM, PSI, wt, cd8 = d["TADM"], d["PSI"], d["wtred"], d["cd8ret"]
 
 # is the last t_admin column an artifact? a TIP effect must depend on psi;
@@ -46,5 +49,5 @@ ax.set_ylabel("CD8 retained (E+M vs no-TIP)")
 ax.set_title("P1.2 trade-off: WT suppression vs CD8 retention\n(each point = a (timing, psi) condition)")
 fig.colorbar(sc, ax=ax, label="TIP advantage psi")
 ax.legend(loc="lower right", fontsize=8)
-fig.tight_layout(); fig.savefig("/home/seth/dev/hiv-aids-research/analysis/p12_pareto.png", dpi=130)
+fig.tight_layout(); fig.savefig(os.path.join(HERE, "p12_pareto.png"), dpi=130)
 print("wrote p12_pareto.png")

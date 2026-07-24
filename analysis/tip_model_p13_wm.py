@@ -11,12 +11,15 @@ Then redo the antagonism test CLEANLY (stable endpoints, no time-averaging neede
 sweep psi, measure WT reduction and CD8 retention E*(A_tip)/E*(A_0). If antagonism
 survives here it's not an oscillation artifact.
 """
+import os
 import numpy as np
 from scipy.integrate import solve_ivp
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from tip_model import P, T0, _san
+
+HERE = os.path.dirname(os.path.abspath(__file__))   # path-portable (AUDIT2 #14)
 
 # weak-ish immunity (kill ~0.4/day at baseline): controls WT only mildly, so the TIP
 # CAN partially establish at high psi -> reveals the suppression-vs-CD8 trade-off curve
@@ -103,7 +106,7 @@ def main():
     ax.text(1.02, 1.0, "immune-compatible", color="green", fontsize=8)
     ax.set_xlabel("WT log10 reduction by TIP"); ax.set_ylabel("CD8 retained E*(A_tip)/E*(A0)")
     ax.set_title("P1.3 stabilized (QSS CD8, no oscillation):\nTIP suppression vs CD8 retention, swept over psi")
-    fig.tight_layout(); fig.savefig("/home/seth/dev/hiv-aids-research/analysis/p13_wm.png", dpi=130)
+    fig.tight_layout(); fig.savefig(os.path.join(HERE, "p13_wm.png"), dpi=130)
     print("wrote p13_wm.png")
 
 

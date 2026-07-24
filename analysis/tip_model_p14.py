@@ -18,6 +18,7 @@ Escape = TIP lowers active WT (Vw) AND CD8 stays primed (E* retained). Sweep (A_
 at strong psi=22. Baseline active antigen ~5e3, so A_def~5e3 ~ "half the infected pool"
 is the Simonetti-realistic regime.
 """
+import os
 import numpy as np
 from scipy.integrate import solve_ivp
 import matplotlib
@@ -25,6 +26,8 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from tip_model import P, T0, _san
 from tip_model_p13_wm import QS
+
+HERE = os.path.dirname(os.path.abspath(__file__))   # path-portable (AUDIT2 #14)
 
 PSI = 22.0
 
@@ -75,7 +78,7 @@ def main():
             cd8ret[i, j] = Estar(Aeff_t) / max(E0, 1e-9)
 
     escape = (wtred >= 0.5) & (cd8ret >= 0.7)
-    np.savez("/home/seth/dev/hiv-aids-research/analysis/p14_sweep.npz",
+    np.savez(os.path.join(HERE, "p14_sweep.npz"),
              ADEF=ADEF, NU=NU, wtred=wtred, cd8ret=cd8ret, Aactive0=Aactive0)
 
     print(f"baseline active antigen A0 (Adef=0) = {Aactive0:.0f}  "
@@ -117,7 +120,7 @@ def main():
     ax[1].set_ylabel("dual-cell immune visibility nu")
     ax[1].set_title("CD8 retained vs no-TIP  (E*(A_eff))")
     fig.colorbar(im1, ax=ax[1])
-    fig.tight_layout(); fig.savefig("/home/seth/dev/hiv-aids-research/analysis/p14_escape.png", dpi=130)
+    fig.tight_layout(); fig.savefig(os.path.join(HERE, "p14_escape.png"), dpi=130)
     print("\nwrote p14_escape.png, p14_sweep.npz")
 
 

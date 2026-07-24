@@ -19,6 +19,7 @@ QSS immunity: E*(Aeff)=Emax*Aeff/(Aeff+K_E);  Aeff = Iw + nu*Id + A_def.
 AUDIT DISCIPLINE: report stability (tail max/min) for every cell; never call an "escape"
 real unless it is a converged fixed point.
 """
+import os
 import numpy as np
 from scipy.integrate import solve_ivp
 import matplotlib
@@ -26,6 +27,8 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from tip_model import P, T0, _san
 from tip_model_p13_wm import QS
+
+HERE = os.path.dirname(os.path.abspath(__file__))   # path-portable (AUDIT2 #14)
 
 PSI = 22.0
 pc = P["p"] / P["c"]                       # virion-per-cell QSS factor
@@ -103,7 +106,7 @@ def main():
             stable[i, j] = 1.0 if tail_osc(s) < 1.05 else 0.0
 
     escape = (wtred >= 0.5) & (cd8ret >= 0.7) & (stable > 0.5)
-    np.savez("/home/seth/dev/hiv-aids-research/analysis/p15_sweep.npz",
+    np.savez(os.path.join(HERE, "p15_sweep.npz"),
              NU=NU, ADEF=ADEF, wtred=wtred, cd8ret=cd8ret, stable=stable, Aact0=Aact0)
 
     print(f"\n--- escape sweep (psi=22) ---")
@@ -134,7 +137,7 @@ def main():
     if escape.any():
         ax[0].contour(x, NU, escape.astype(float), levels=[0.5], colors="red", linewidths=2.5)
     fig.suptitle("P1.5 stable build (QSS virus + QSS immunity): escape test (red = immune-compatible & converged)")
-    fig.tight_layout(); fig.savefig("/home/seth/dev/hiv-aids-research/analysis/p15_escape.png", dpi=130)
+    fig.tight_layout(); fig.savefig(os.path.join(HERE, "p15_escape.png"), dpi=130)
     print("\nwrote p15_escape.png, p15_sweep.npz")
 
 

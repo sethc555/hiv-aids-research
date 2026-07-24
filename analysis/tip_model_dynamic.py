@@ -24,12 +24,15 @@ Two tests:
 
 Reuses the P1 static model (tip_model.py).
 """
+import os
 import numpy as np
 from scipy.integrate import solve_ivp
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from tip_model import P, T0, wt_setpoint as wt_static, tip_arm as tip_static, _san
+
+HERE = os.path.dirname(os.path.abspath(__file__))   # path-portable (AUDIT2 #14)
 
 IK = dict(k=2e-4, K_E=5000.0, dE=0.2)
 E_INIT = 1.0
@@ -113,7 +116,7 @@ def main():
     _, s_e = integ([T0, 0, 0, 0, 1e-3, 1e2, E_INIT], a_show, PSI_T, teval=teval)
     spc = base_dyn(a_show); _, s_l = integ(list(spc[:5]) + [1e2, spc[6]], a_show, PSI_T, teval=teval)
 
-    np.savez("/home/seth/dev/hiv-aids-research/analysis/tip_dyn_sweep.npz",
+    np.savez(os.path.join(HERE, "tip_dyn_sweep.npz"),
              A=A, PSI=PSI, benefit=benefit, persist=persist, rescue=rescue,
              keff0=keff0, vw_noTIP=vw_noTIP, vw_late=vw_late, vw_early=vw_early)
 
@@ -131,7 +134,7 @@ def main():
     ax[1].set_xlabel("immune responsiveness a (/day)"); ax[1].set_ylabel("TIP advantage psi")
     ax[1].set_title("RESCUE = dynamic - static-matched\n(red>0 = feedback helps beyond static)")
     fig.colorbar(im1, ax=ax[1], label="extra log10 vs static")
-    fig.tight_layout(); fig.savefig("/home/seth/dev/hiv-aids-research/analysis/dynamic_phase.png", dpi=130)
+    fig.tight_layout(); fig.savefig(os.path.join(HERE, "dynamic_phase.png"), dpi=130)
 
     fig2, ax2 = plt.subplots(1, 2, figsize=(13, 4.8))
     ax2[0].semilogy(A, vw_noTIP, "k:", lw=2, label="no TIP (immunity only)")
@@ -149,7 +152,7 @@ def main():
     ax2[1].set_xlabel("days"); ax2[1].set_ylabel("WT load Vw (solid)")
     ax2[1].set_title(f"a={a_show:.2f} (chronic k*E0~{keff0[np.argmin(np.abs(keff0-0.7))]:.2f}): early keeps\nimmunity+virus low; late can't start")
     ax2[1].legend(fontsize=9, loc="lower left")
-    fig2.tight_layout(); fig2.savefig("/home/seth/dev/hiv-aids-research/analysis/timing.png", dpi=130)
+    fig2.tight_layout(); fig2.savefig(os.path.join(HERE, "timing.png"), dpi=130)
 
     # ---- summary ----
     print("\n--- (1) rescue map (dynamic vs static-matched) ---")
