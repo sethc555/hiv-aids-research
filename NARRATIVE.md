@@ -1,5 +1,14 @@
 # The thread, as a story
 
+> ⚠️ **SUPERSEDED — historical record.** This narrates the 2026-06-19/20 session, which ended at the
+> verdict *"a TIP is orthogonal / neutral to the immune-control cure."* **That verdict was later
+> RETRACTED.** The multi-agent re-audit ([AUDIT2.md](analysis/AUDIT2.md) #2) found it was an artifact of
+> modelling the TIP and the reservoir as **non-interacting**; once coupled ([P11](analysis/P11_findings.md)),
+> a reservoir-coupled TIP **helps** post-treatment control. See [README](README.md) and
+> [paper/MANUSCRIPT.md](paper/MANUSCRIPT.md) for the current verdict, and
+> [analysis/corrections.json](analysis/corrections.json) (entry **C2**) for the machine-verifiable
+> retraction. Kept unedited **because** the reversal is the point — the trail is the credibility.
+
 _A readable narrative of the session that produced this repo (2026-06-19/20)._
 
 ## 1. A wrong turn that pointed the right way
@@ -168,6 +177,11 @@ at the level the field measures it — patient cohorts, rebound curves — and i
 *a TIP is orthogonal to the immune-control HIV cure.* A confident question, narrowed by negative
 results and relentless honesty into a calibrated, falsifiable, and now patient-level one —
 reached from a laptop.
+
+> ⚠️ **This conclusion was RETRACTED.** "Orthogonal/neutral" held only because the TIP and the
+> reservoir were modelled as non-interacting (χ=0). Coupling them ([P11](analysis/P11_findings.md))
+> flips it: a reservoir-coupled TIP **helps**. See [AUDIT2](analysis/AUDIT2.md) #2 and
+> [corrections.json](analysis/corrections.json) **C2**.
 
 ## 9. The positive program (P8) — what *would* help
 

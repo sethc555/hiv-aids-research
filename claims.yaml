@@ -59,7 +59,7 @@ claims:
     reproduce: "python3 verify_claims.py --check p15"
     expect: { exit_code: 0 }
   - id: p16
-    statement: "Semi-analytic criterion: kappa_crit = (R0-1)d = 7.70/day; R_eff = R0*d/(d+kappa); the coupled TIP helps in the marginal band and never backfires."
+    statement: "Semi-analytic criterion: kappa_crit = (R0-1)d = 7.70/day; R_eff = R0*d/(d+kappa); the coupled TIP helps in the marginal band and shows no systematic backfire."
     reproduce: "python3 verify_claims.py --check p16"
     expect: { exit_code: 0 }
   - id: analytic
