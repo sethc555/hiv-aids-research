@@ -84,11 +84,13 @@ RESULTS = [
      f"R0_TIP(1,7.5,20) = {_r1:.2f}, {_r7:.2f}, {_r20:.2f}; ratio(20/7.5) = {_growth:.2f}",
      "AUDIT2: the local linear fit 0.134*psi falls (0.46/0.13/0.075) -> sub-linear confirmed",
      1.3 < _growth < 2.0),
-    ("Coupling threshold shift Delta(chi) — closed form OPEN; numerically Delta>=0, increasing",
-     "coupled TIP shifts the control boundary to kappa_crit - Delta(chi)",
-     "Delta(chi) >= 0, increasing in chi   [CLOSED FORM: OPEN — the Dodd & de Boer question]",
+    ("Coupling threshold shift Delta(chi) — CLOSED FORM SOLVED (see analytic_delta.py)",
+     "coupled TIP shifts the effective (seeded-flare) control boundary to kappa_crit - Delta(chi)",
+     "Delta(chi) = R0*d*chi*(1-THETA),  THETA = (1-rho)(d+kappa)/(d+nu*kappa);  Delta>=0 <=> THETA<=1",
      _delta_val,
-     "explains P14 (benefit grows with chi at marginal immunity) + P15 (Delta>=0 -> no backfire)",
+     "solved 2026-06-27: linear in chi, zero at chi=0 (de Boer limit), and the no-backfire condition is "
+     "exactly THETA<=1 — which PREDICTS a backfire regime at low diversion (validated). "
+     "NB the ASYMPTOTIC threshold kappa_crit is unshifted; the shift is of the seeded-flare boundary.",
      _delta_ok),
 ]
 OUT = [r[5] for r in RESULTS]

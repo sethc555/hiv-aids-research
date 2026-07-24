@@ -237,6 +237,26 @@ def verify_analytic():
           "(p14 coupling grid; closed form OPEN)")
 
 
+def verify_delta():
+    # CLOSED-FORM Delta(chi) (analytic_delta.py): the open question in the manuscript / analytic #5,
+    # and the one Dodd & de Boer asked about. Delta(chi) = R0*d*chi*(1-THETA), with
+    # THETA = (1-rho)(d+kappa)/(d+nu*kappa); no-backfire <=> THETA<=1. Predicts the simulated SIGN.
+    print("DELTA — closed-form threshold shift Delta(chi) (analytic_delta.py):")
+    import analytic_delta as D
+    k = 5.0
+    check("Delta(0) = 0 (de Boer limit recovered)", abs(D.delta(0.0, k)), 0, 1e-9, "[exact]")
+    check("Delta linear in chi (Delta(1) = 2*Delta(0.5))",
+          abs(D.delta(1.0, k) - 2 * D.delta(0.5, k)), 0, 1e-9, "[exact]")
+    check("kappa_eff(chi=0) = kappa_crit = 7.70 (threshold unshifted)", D.kappa_eff(0.0, k), 7.65, 7.75)
+    check("THETA < 1 at the design point (rho=0.9) -> Delta > 0", D.theta(k, 0.9, 0.9), 0.0, 1.0,
+          "(no-backfire condition holds)")
+    check("backfire predicted for a weak-diversion stealthy TIP (rho=0.3,nu=0.1)",
+          D.theta(k, 0.3, 0.1), 1.0, 10.0, "(THETA>1 -> Delta<0)")
+    nok = sum(1 for _, t, e in D.VALIDATION if (t < 1 and e > 5) or (t > 1 and e <= 5))
+    check("closed form predicts the simulated SIGN in all cases", nok, len(D.VALIDATION), len(D.VALIDATION),
+          f"({nok}/{len(D.VALIDATION)}; crossover ~0.70 obs vs 0.75 predicted)")
+
+
 def verify_loo():
     # OUT-OF-SAMPLE VALIDATION (loo_validation.py): the honest bound. The reduced rebound clock is a
     # faithful proxy of the full P6 KM, AND the clinical timing anchors do NOT transfer out-of-sample
@@ -290,7 +310,7 @@ REGISTRY = {
     "p1": verify_p1, "p3": verify_p3, "p4_p6": verify_p4_p6, "p8": verify_p8,
     "p11": verify_p11, "p12": verify_p12, "p13": verify_p13, "deboer": verify_deboer,
     "p14": verify_p14, "p15": verify_p15, "p16": verify_p16,
-    "analytic": verify_analytic, "loo": verify_loo, "triage": verify_triage,
+    "analytic": verify_analytic, "delta": verify_delta, "loo": verify_loo, "triage": verify_triage,
     "corrections": verify_corrections,
 }
 

@@ -66,6 +66,10 @@ claims:
     statement: "Derived closed forms (reviewer-checkable): R0 = b*T0*p/(d*c) = 8.70; control threshold kappa_crit = (R0-1)d = 7.70; the TIP invasion threshold psi* = 7.49 via a next-generation matrix; R0_TIP scales sub-linearly (~sqrt(psi)); the coupling threshold-shift Delta(chi) >= 0 (closed form open)."
     reproduce: "python3 verify_claims.py --check analytic"
     expect: { exit_code: 0 }
+  - id: delta
+    statement: "Delta(chi) in CLOSED FORM: Delta(chi) = R0*d*chi*(1-THETA) with THETA = (1-rho)(d+kappa)/(d+nu*kappa) — linear in chi, zero at chi=0 (the de Boer limit), and the no-backfire condition is exactly THETA<=1. The asymptotic threshold kappa_crit=(R0-1)d is itself unshifted by coupling. The criterion predicts the SIGN of the simulated coupling effect in all validation cases, including a BACKFIRE regime at low packaging diversion."
+    reproduce: "python3 verify_claims.py --check delta"
+    expect: { exit_code: 0 }
   - id: loo
     statement: "Out-of-sample bound: the reduced rebound clock is a faithful proxy of the full stochastic model, and the clinical KM timing anchors do NOT transfer out-of-sample from a reservoir clock alone (they are fitted; the genuine out-of-sample evidence is the de Boer external reproduction)."
     reproduce: "python3 verify_claims.py --check loo"
